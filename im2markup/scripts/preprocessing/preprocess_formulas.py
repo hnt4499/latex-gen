@@ -30,7 +30,7 @@ def process_args(args):
                         ))
     parser.add_argument('--log-path', dest="log_path",
                         type=str, default='log.txt',
-                        help=('Log file path, default=log.txt' 
+                        help=('Log file path, default=log.txt'
                         ))
     parameters = parser.parse_args(args)
     return parameters
@@ -60,8 +60,8 @@ def main(args):
         logging.error('FAILED: %s'%cmd)
 
     temp_file = output_file + '.tmp'
-    with open(temp_file, 'w') as fout:  
-        with open(output_file) as fin:
+    with open(temp_file, 'w', encoding="ISO-8859-1") as fout:
+        with open(output_file, encoding="ISO-8859-1") as fin:
             for line in fin:
                 fout.write(line.replace('\r', ' ').strip() + '\n')  # delete \r
 
