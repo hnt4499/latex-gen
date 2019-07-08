@@ -60,8 +60,8 @@ def main(args):
         logging.error('FAILED: %s'%cmd)
 
     temp_file = output_file + '.tmp'
-    with open(temp_file, 'w', encoding="ISO-8859-1") as fout:
-        with open(output_file, encoding="ISO-8859-1") as fin:
+    with open(temp_file, 'w', encoding="ISO-8859-15") as fout:
+        with open(output_file, encoding="ISO-8859-15") as fin:
             for line in fin:
                 fout.write(line.replace('\r', ' ').strip() + '\n')  # delete \r
 
@@ -78,8 +78,7 @@ def main(args):
                 tokens = line.strip().split()
                 tokens_out = []
                 for token in tokens:
-                    if is_ascii(token):
-                        tokens_out.append(token)
+                    tokens_out.append(token)
                 fout.write(' '.join(tokens_out)+'\n')
     os.remove(temp_file)
 
