@@ -1,5 +1,6 @@
-*/data
-data
-!data/**/*.txt
+im2markup/data
+
+data/*
+!data/**/*txt
 
 im2markup/log.txt
