@@ -1,6 +1,6 @@
 im2markup/data
 
-data/*
-!data/**/*txt
+data/**/*.json
+data/**/*.h5
 
 im2markup/log.txt
