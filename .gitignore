@@ -5,3 +5,5 @@ data/**/*.h5
 data/**/*.t7
 
 im2markup/log.txt
+
+.ipynb_checkpoints/*
