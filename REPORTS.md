@@ -36,9 +36,10 @@
 
 > TODO:
 
- - References.
- - Training results/ visualization.
- - Tool for converting results in text to LaTeX format.
- - Literature review.
- - Further process/clean data.
- - Try out different hyperparameters, techniques and network architecture.
+ - [ ] References.
+ - [ ] Training results/ visualization.
+ - [ ] Tool for converting results in text to LaTeX format.
+ - [ ] Literature review.
+ - [ ] Further process/clean data.
+ - [ ] Try out different hyperparameters, techniques and network architecture.
+
