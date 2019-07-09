@@ -5,7 +5,7 @@
 > Overview
 
  - The dataset was highly inspired from [harvardnlp](http://nlp.seas.harvard.edu/)'s project of [Image-to-Markup Generation](http://lstm.seas.harvard.edu/latex/) [[paper](http://arxiv.org/pdf/1609.04938v1.pdf)]. The dataset consists of 100k LaTeX formulas (separated by `\n`) in `lts` format decoded by `ISO-8859-15`. The scripts for data pre-processing can be found in this repo: `latex-gen/im2markup/scripts/prepocessing/prepocess_formulas.py`.  According to the original repo, this script will 
-	> normalized input data and produce some error messages since some formulas cannot be parsed by the KaTeX parser.
+	> normalize input data and produce some error messages since some formulas cannot be parsed by the KaTeX parser.
 	
  - The [Torch](http://torch.ch/) implementation of LSTM-RNN for Text Generation, `torch-rnn`, is used and can be found [here](https://github.com/jcjohnson/torch-rnn). Dockerized version of `torch-rnn` is used due to compatibility issues and can be found [here](https://github.com/crisbal/docker-torch-rnn).
  - Two methods of pre-processing data have been used. All checkpoints as well as training stats and results can be found under the `data/checkpoint` folder.
@@ -20,12 +20,12 @@
 	```
 	th train.lua \
 		-input_h5 data/formulas.h5 \
-		-input_json data/formulas.json
-		-sequence_length 500
-		-rnn_size 512
-		-dropout 0.4
-		-num_layers 3
-		-max_epochs 200
+		-input_json data/formulas.json \
+		-sequence_length 500 \
+		-rnn_size 512 \
+		-dropout 0.4 \
+		-num_layers 3 \
+		-max_epochs 200 \
 		-lr_decay_factor 0.7
 	```
 > Problems
