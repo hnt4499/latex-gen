@@ -9,14 +9,14 @@
 	
  - The [Torch](http://torch.ch/) implementation of LSTM-RNN for Text Generation, `torch-rnn`, is used and can be found [here](https://github.com/jcjohnson/torch-rnn). Dockerized version of `torch-rnn` is used due to compatibility issues and can be found [here](https://github.com/crisbal/docker-torch-rnn).
  - Two methods of pre-processing data have been used. All checkpoints as well as training stats and results can be found under the `data/checkpoint` folder.
-    - Pre-processed with `im2latex/scripts/preprocess_formulas.py`. Further processed and generated `training`/`validation`/`test` data with `torch-rnn/scripts/preprocess.py`. Finally, the data is fed into the model using default hyperpameters with:
+    - Pre-process with `im2latex/scripts/preprocess_formulas.py`. Further process and generate `training`/`validation`/`test` data with `torch-rnn/scripts/preprocess.py`. Finally, the data is fed into the model using default hyperpameters with:
 	```
 	th train.lua \
 		-input_h5 data/formulas_processed.h5 \
 		-input_json data/formulas_processed.json
 	``` 
 	
-    - Pre-processed only with  `torch-rnn/scripts/preprocess.py`. Finally, the data is fed into the model with:
+    - Firstly, clean the data by converting the encoder from `ISO-8859-15` to `UTF-8` so that the subsequent scripts can be used. Further process with  `torch-rnn/scripts/preprocess.py`. Finally, the data is fed into the model with:
 	```
 	th train.lua \
 		-input_h5 data/formulas.h5 \
