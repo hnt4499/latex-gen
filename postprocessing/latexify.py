@@ -46,7 +46,7 @@ def doArgs(argList, name):
 def main():
 
     if which("latex") == None or which("dvipng") == None:
-        print "Error! The commands `latex` and `dvipng` are required and could not be found in your environment."
+        print("Error! The commands `latex` and `dvipng` are required and could not be found in your environment.")
         return
 
     args = doArgs(sys.argv[1:], "LaTeX to PNG utility")
@@ -85,9 +85,9 @@ def main():
         stderr = nullFile
 
     if verbose:
-        print "latex output"
-        print "-" * 40
-        print ""
+        print("latex output")
+        print("-" * 40)
+        print("")
 
     # We call `latex` in nonstop mode to generate a .dvi file from our temporary latex file.
     subprocess.call(["latex","-src","-interaction=nonstopmode", "%s.tex" % tempFn], stdout=stdout, stderr=stderr)
@@ -96,10 +96,10 @@ def main():
     os.chdir(startDir)
 
     if verbose:
-        print "\n"*2
-        print "dvipng output"
-        print "-" * 40
-        print ""
+        print("\n"*2)
+        print("dvipng output")
+        print("-" * 40)
+        print("")
 
     # We then call `dvipng` to create a cropped png from the dvi output from latex.
     # We also allow the user to change the dpi to get different sized outputs.
