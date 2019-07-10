@@ -51,22 +51,18 @@ def main(args):
     mode = args.mode
     assert mode in ["single", "combine"]
 
+    generate_filepath = lambda x: os.path.join(output_dir,
+                                               "{}_{}.png".format(img_prefix, x)
+                                               )
     if mode == "single":
-        generate_filepath = lambda x: os.path.join(output_dir,
-                                                   "{}_{}.png".format(img_prefix, x)
-                                                   )
-
-        with open(text_input, "r", encoding=encoding) as text:
-            for line in tqdm(text.readlines()):
-                tex_to_img(text=line,
-                           output_path=generate_filepath(i),
-                           dpi=dpi,
-                           tmp_dir=tmp_dir)
+        slice = 1
     else:
-        output_path = os.path.join(output_dir, "{}.png".format(img_prefix))
-        with open(text_input, "r", encoding=encoding) as text:
-            tex_to_img(text=text.readlines(),
-                       output_path=output_path,
+        slice = 15
+
+    with open(text_input, "r", encoding=encoding) as text:
+        for line in tqdm(text.readlines()[::slice]):
+            tex_to_img(text=line,
+                       output_path=generate_filepath(i),
                        dpi=dpi,
                        tmp_dir=tmp_dir)
 
