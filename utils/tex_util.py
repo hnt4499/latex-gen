@@ -6,6 +6,20 @@ import string
 from shutil import copy
 
 def tex_to_img(text, output_path, dpi, tmp_dir):
+    """Short summary.
+
+    Parameters
+    ----------
+    text : str or list of str
+        If `text` is a list of string, multiple formulas will be
+        written into the same `.png` file.
+    output_path : str
+    dpi : str
+        dpi of the output `.png` file.
+    tmp_dir : str
+        Directory to store temporary files while processing.
+
+    """
     # Save `output_path`
     output_path = os.path.abspath(output_path)
     # Save current directory
@@ -34,7 +48,7 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
 
         # We call `latex` in nonstop mode to generate a .dvi
         # file from our temporary latex file
-        subprocess.call(
+        code = subprocess.call(
             ["latex", "-src", "-interaction=nonstopmode", tmp_tex_path],
             stdout=stdout,
             stderr=stderr
