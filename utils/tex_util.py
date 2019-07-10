@@ -19,8 +19,17 @@ def write_tex(tex_path, text):
         tex.write("\\end{document}\n")
 
 
+def tex_to_dvi(tex_path, stdin=None, stdout=None):
+    code = subprocess.call(
+        ["latex", "-src", "-interaction=nonstopmode", tex_path],
+        stdout=stdout,
+        stderr=stderr
+    )
+    return code
+
+
 def tex_to_img(text, output_path, dpi, tmp_dir):
-    """Short summary.
+    """Function to convert text form of a LaTeX formulas to `.png`.
 
     Parameters
     ----------
@@ -57,11 +66,7 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
 
         # We call `latex` in nonstop mode to generate a .dvi
         # file from our temporary latex file
-        code = subprocess.call(
-            ["latex", "-src", "-interaction=nonstopmode", tmp_tex_path],
-            stdout=stdout,
-            stderr=stderr
-        )
+        tex_to_dvi(tmp_tex_path)
 
         # We then call `dvipng` to create a cropped png image
         # from the dvi output from the last script
