@@ -52,9 +52,9 @@ def main(args):
                                                "{}_{}.png".format(img_prefix, x)
                                                )
 
-    with open(text_input, "r", encoding=encoder) as lines:
+    with open(text_input, "r", encoding=encoder) as text:
         i = 0
-        for line in tqdm(lines):
+        for line in tqdm(text.readlines()):
             tex_to_img(text=line,
                        output_path=generate_filepath(i),
                        dpi=dpi,
