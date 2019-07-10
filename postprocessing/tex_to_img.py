@@ -48,32 +48,18 @@ def main(args):
     tmp_dir = os.path.abspath(args.tmp_dir)
     encoding = args.encoding
 
-    success = False
     generate_filepath = lambda x: os.path.join(output_dir,
                                                "{}_{}.png".format(img_prefix, x)
                                                )
-    for encoder in encoding:
-        if success:
-            break
-        try:
-            print("Try decoding input data by {}...".format(encoder))
-            # Try to capture error beforehand.
-            with open(text_input, "r", encoding=encoder) as lines:
-                lines.readlines()
-            # Actual reading input.
-            with open(text_input, "r", encoding=encoder) as lines:
-                i = 0
-                for line in tqdm(lines):
-                    tex_to_img(text=line,
-                               output_path=generate_filepath(i),
-                               dpi=dpi,
-                               tmp_dir=tmp_dir)
-                    i += 1
-                success = True
-                print("...Success!")
-        except Exception as e:
-            print("...Failed!")
-            print(e)
+
+    with open(text_input, "r", encoding=encoder) as lines:
+        i = 0
+        for line in tqdm(lines):
+            tex_to_img(text=line,
+                       output_path=generate_filepath(i),
+                       dpi=dpi,
+                       tmp_dir=tmp_dir)
+            i += 1
 
 
 def parse_arguments(argv):
@@ -87,7 +73,7 @@ def parse_arguments(argv):
     parser.add_argument('img_prefix', type=str,
         help='Image prefix. Images will be saved in `output_dir` '
              'and named `prefix`_`index`.png')
-             
+
     parser.add_argument('--dpi', type=int, default=120,
         help='DPI (resolution) of output png.')
     parser.add_argument('--tmp_dir', type=str, default="/tmp",
