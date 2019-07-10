@@ -49,7 +49,7 @@ def main(args):
     encoding = args.encoding
     # Read and assert mode.
     mode = args.mode
-    assert mode in ["single", "multiple"]
+    assert mode in ["single", "combine"]
 
     if mode == "single":
         generate_filepath = lambda x: os.path.join(output_dir,
