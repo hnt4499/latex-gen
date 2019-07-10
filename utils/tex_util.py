@@ -5,6 +5,20 @@ import random
 import string
 from shutil import copy
 
+
+def write_tex(tex_path, text):
+    if isinstance(text, str):
+        text = [text]
+
+    with open(tex_path, "w") as tex:
+        tex.write("\documentclass{minimal}\n")
+        tex.write("\\begin{document}\n")
+        # Write equations starting and ending with `$`, line by line
+        for line in text:
+            tex.write("${}$\n".format(line))
+        tex.write("\\end{document}\n")
+
+
 def tex_to_img(text, output_path, dpi, tmp_dir):
     """Short summary.
 
@@ -34,12 +48,7 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
                                             for ext in ["tex", "dvi", "png"])
     # Write out a temporary file containing enough latex code to hold the input
     # expression. The minimal documentclass type will turn off page numbers
-    with open(tmp_tex_path, "w") as tmp_tex:
-        tmp_tex.write("\documentclass{minimal}\n")
-        tmp_tex.write("\\begin{document}\n")
-        # Write equation starting and ending with `$`
-        tmp_tex.write("${}$\n".format(text))
-        tmp_tex.write("\\end{document}\n")
+    write_tex(tmp_tex_path, text)
 
     # Turn off stdin and stdout when executing scripts within Python
     with open(os.devnull, 'w') as null_io:
