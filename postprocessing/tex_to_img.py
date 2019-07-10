@@ -85,8 +85,8 @@ def parse_arguments(argv):
 
     parser.add_argument('--mode', type=str, default="single",
         help='If `mode == single`, each line will be saved to a separate '
-             '`.png` file. If `mode == multiple`, only one `.png` file '
-             'will be generated containing all formulas.')
+             '`.png` file. If `mode == combine`, one `.png` file '
+             'will contain a maxmimum of 15 formulas.')
     parser.add_argument('--dpi', type=int, default=120,
         help='DPI (resolution) of output png.')
     parser.add_argument('--tmp_dir', type=str, default="/tmp",
