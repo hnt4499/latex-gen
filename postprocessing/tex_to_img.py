@@ -91,7 +91,7 @@ def parse_arguments(argv):
         help='DPI (resolution) of output png.', default=120)
     parser.add_argument('--tmp_dir', type=str, help='Directory to which '
         'all temporary file(s) will be saved.', default="/tmp")
-    parser.add_argument('--encoding', nargs='+',
+    parser.add_argument('-e', '--encoding', nargs='+',
         default=["UTF-8", "ISO-8859-15"],
         help='Decoder(s) to try for input data.')
 

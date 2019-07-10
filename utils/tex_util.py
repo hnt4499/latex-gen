@@ -6,13 +6,13 @@ import string
 from shutil import copy
 
 def tex_to_img(text, output_path, dpi, tmp_dir):
-    # Save absolute path of `output_path`
+    # Save `output_path`
     output_path = os.path.abspath(output_path)
     # Save current directory
     cwd = os.getcwd()
-    # Change directory to `tmp-dir`
+    # Change directory to `tmp_dir`
     os.chdir(tmp_dir)
-    # Create a random 16 letter filename
+    # Use the same name as the output_path to debug easily.
     _, filename = os.path.split(output_path)
     tmp_file, _ = os.path.splitext(filename)
 
