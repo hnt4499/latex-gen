@@ -15,7 +15,9 @@ def write_tex(tex_path, text):
         tex.write("\\begin{document}\n")
         # Write equations starting and ending with `$`, line by line
         for line in text:
-            tex.write("${}$\n".format(line))
+            equation = "\\begin{equation} " + line + " \\end{equation}\n"
+            tex.write(equation)
+            # tex.write("\\begin\{equation} {} \\end\{equation}\n".format(line))
         tex.write("\\end{document}\n")
 
 
