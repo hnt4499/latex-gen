@@ -47,19 +47,28 @@ def main(args):
     dpi = args.dpi
     tmp_dir = os.path.abspath(args.tmp_dir)
     encoding = args.encoding
+    # Read and assert mode.
+    mode = args.mode
+    assert mode in ["single", "multiple"]
 
-    generate_filepath = lambda x: os.path.join(output_dir,
-                                               "{}_{}.png".format(img_prefix, x)
-                                               )
+    if mode == "single":
+        generate_filepath = lambda x: os.path.join(output_dir,
+                                                   "{}_{}.png".format(img_prefix, x)
+                                                   )
 
-    with open(text_input, "r", encoding=encoder) as text:
-        i = 0
-        for line in tqdm(text.readlines()):
-            tex_to_img(text=line,
-                       output_path=generate_filepath(i),
+        with open(text_input, "r", encoding=encoding) as text:
+            for line in tqdm(text.readlines()):
+                tex_to_img(text=line,
+                           output_path=generate_filepath(i),
+                           dpi=dpi,
+                           tmp_dir=tmp_dir)
+    else:
+        output_path = os.path.join(output_dir, "{}.png".format(img_prefix))
+        with open(text_input, "r", encoding=encoding) as text:
+            tex_to_img(text=text.readlines(),
+                       output_path=output_path,
                        dpi=dpi,
                        tmp_dir=tmp_dir)
-            i += 1
 
 
 def parse_arguments(argv):
@@ -74,6 +83,10 @@ def parse_arguments(argv):
         help='Image prefix. Images will be saved in `output_dir` '
              'and named `prefix`_`index`.png')
 
+    parser.add_argument('--mode', type=str, default="single",
+        help='If `mode == single`, each line will be saved to a separate '
+             '`.png` file. If `mode == multiple`, only one `.png` file '
+             'will be generated containing all formulas.')
     parser.add_argument('--dpi', type=int, default=120,
         help='DPI (resolution) of output png.')
     parser.add_argument('--tmp_dir', type=str, default="/tmp",
