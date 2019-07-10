@@ -28,6 +28,16 @@ def tex_to_dvi(tex_path, stdin=None, stdout=None):
     return code
 
 
+def dvi_to_png(dvi_path, png_path, dpi=120, stdin=None, stdout=None):
+    code = subprocess.call(
+        ["dvipng", "--width*", "--height*", "-T", "tight",
+        "-D", str(dpi), dvi_path, "-o", png_path],
+        stdout=stdout,
+        stderr=stderr
+    )
+    return code
+
+
 def tex_to_img(text, output_path, dpi, tmp_dir):
     """Function to convert text form of a LaTeX formulas to `.png`.
 
@@ -70,12 +80,8 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
 
         # We then call `dvipng` to create a cropped png image
         # from the dvi output from the last script
-        code = subprocess.call(
-            ["dvipng", "--width*", "--height*", "-T", "tight",
-            "-D", str(dpi), tmp_dvi_path, "-o", tmp_png_path],
-            stdout=stdout,
-            stderr=stderr
-        )
+        code = dvi_to_png(dvi_path=tmp_dvi_path, png_path=tmp_png_path,
+                          dpi=dpi, stdin=stdin, stdout=stdout)
         if code != 0:
             print("\nError generating {}. "
                   "Returned code {}".format(tmp_png_path, code))
