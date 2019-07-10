@@ -60,21 +60,20 @@ def main(args):
         slice = 15
 
     i = 0
-    count = 0
-    lines = []
+    start = 0
 
     with open(text_input, "r", encoding=encoding) as text:
-        for line in tqdm(text.readlines()):
-            count += 1
-            lines.append(line)
-            if count % slice != 0:
-                continue
+        lines = text.readlines()
+        for line in tqdm(lines[::slice]):
+            end = start + slice
+            end = len(lines) if end > len(lines) else end
 
-            tex_to_img(text=lines,
+            tex_to_img(text=lines[start:end],
                        output_path=generate_filepath(i),
                        dpi=dpi,
                        tmp_dir=tmp_dir)
             i += 1
+            start += slice
 
 
 def parse_arguments(argv):
