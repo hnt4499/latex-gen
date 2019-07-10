@@ -19,20 +19,20 @@ def write_tex(tex_path, text):
         tex.write("\\end{document}\n")
 
 
-def tex_to_dvi(tex_path, stdin=None, stderr=None):
+def tex_to_dvi(tex_path, stdout=None, stderr=None):
     code = subprocess.call(
         ["latex", "-src", "-interaction=nonstopmode", tex_path],
-        stderr=stderr,
+        stdout=stdout,
         stderr=stderr
     )
     return code
 
 
-def dvi_to_png(dvi_path, png_path, dpi=120, stdin=None, stderr=None):
+def dvi_to_png(dvi_path, png_path, dpi=120, stdout=None, stderr=None):
     code = subprocess.call(
         ["dvipng", "--width*", "--height*", "-T", "tight",
         "-D", str(dpi), dvi_path, "-o", png_path],
-        stderr=stderr,
+        stdout=stdout,
         stderr=stderr
     )
     return code
@@ -69,19 +69,19 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
     # expression. The minimal documentclass type will turn off page numbers
     write_tex(tmp_tex_path, text)
 
-    # Turn off stdin and stderr when executing scripts within Python
+    # Turn off stdout and stderr when executing scripts within Python
     with open(os.devnull, 'w') as null_io:
-        stderr = null_io
+        stdout = null_io
         stderr = null_io
 
         # We call `latex` in nonstop mode to generate a .dvi
         # file from our temporary latex file
-        tex_to_dvi(tmp_tex_path)
+        tex_to_dvi(tmp_tex_path, stdout=stdout, stderr=stderr)
 
         # We then call `dvipng` to create a cropped png image
         # from the dvi output from the last script
         code = dvi_to_png(dvi_path=tmp_dvi_path, png_path=tmp_png_path,
-                          dpi=dpi, stdin=stdin, stderr=stderr)
+                          dpi=dpi, stdout=stdout, stderr=stderr)
         if code != 0:
             print("\nError generating {}. "
                   "Returned code {}".format(tmp_png_path, code))
