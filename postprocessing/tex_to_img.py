@@ -61,12 +61,15 @@ def main(args):
 
     i = 0
     count = 0
+    lines = []
+
     with open(text_input, "r", encoding=encoding) as text:
         for line in tqdm(text.readlines()):
             count += 1
+            lines.append(line)
             if count % slice != 0:
                 continue
-                
+
             tex_to_img(text=line,
                        output_path=generate_filepath(i),
                        dpi=dpi,
