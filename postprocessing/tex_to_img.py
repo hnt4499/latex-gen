@@ -87,12 +87,12 @@ def parse_arguments(argv):
     parser.add_argument('img_prefix', type=str,
         help='Image prefix. Images will be saved in `output_dir` '
              'and named `prefix`_`index`.png')
-    parser.add_argument('--dpi', type=int,
-        help='DPI (resolution) of output png.', default=120)
-    parser.add_argument('--tmp_dir', type=str, help='Directory to which '
-        'all temporary file(s) will be saved.', default="/tmp")
-    parser.add_argument('-e', '--encoding', nargs='+',
-        default=["UTF-8", "ISO-8859-15"],
+             
+    parser.add_argument('--dpi', type=int, default=120,
+        help='DPI (resolution) of output png.')
+    parser.add_argument('--tmp_dir', type=str, default="/tmp",
+        help='Directory to which all temporary file(s) will be saved.')
+    parser.add_argument('--encoding', type=str, default="utf-8",
         help='Decoder(s) to try for input data.')
 
     return parser.parse_args(argv)

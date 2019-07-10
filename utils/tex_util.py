@@ -89,7 +89,6 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
             # Copy final file to `output_path` and clean up
             copy(tmp_png_path, output_path)
 
-
     os.system("rm -rf {}*".format(tmp_file))
     # Change back to original working directory
     os.chdir(cwd)
