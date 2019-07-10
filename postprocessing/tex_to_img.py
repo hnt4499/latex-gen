@@ -70,7 +70,7 @@ def main(args):
             if count % slice != 0:
                 continue
 
-            tex_to_img(text=line,
+            tex_to_img(text=lines,
                        output_path=generate_filepath(i),
                        dpi=dpi,
                        tmp_dir=tmp_dir)
