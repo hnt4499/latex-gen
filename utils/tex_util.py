@@ -14,10 +14,14 @@ def write_tex(tex_path, text):
         tex.write("\documentclass{minimal}\n")
         tex.write("\\begin{document}\n")
         # Write equations starting and ending with `$`, line by line
-        for line in text:
-            equation = "\\begin{equation} " + line + " \\end{equation}\n"
-            tex.write(equation)
-            # tex.write("\\begin\{equation} {} \\end\{equation}\n".format(line))
+        # If only one formula
+        if len(text) == 1:
+            tex.write("${}$\n".format(text[0]))
+        # Else if multiple formulas
+        else:
+            for line in text:
+                equation = "\\begin{equation} " + line + " \\end{equation}\n"
+                tex.write(equation)
         tex.write("\\end{document}\n")
 
 
