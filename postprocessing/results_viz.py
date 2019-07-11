@@ -8,12 +8,18 @@ import json
 
 
 def main(args):
-    pass
+    # Read some arguments
+    fig_size = (args.fig_width, args.fig_height)
+    train_xmin = args.train_xmin
+    train_xmax = args.train_xmax
+    val_xmin = args.val_xmin
+    val_xmax = args.val_xmax
 
-    
+
 def parse_arguments(argv):
     parser = argparse.ArgumentParser(
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        description=DESCRIPTION)
 
     parser.add_argument('input_json', type=str,
         help='Path to the input `.json` file.')
@@ -22,6 +28,9 @@ def parse_arguments(argv):
 
     parser.add_argument('--ignore_outliers', action="store_true",
         help='Whether to ignore outliers when processing `.json` file.')
+    parser.add_argument('--threshold', type=float, default=3.5,
+        help='Threshold to compare to `z-score`. Only used '
+             'when `ignore_outliers` is set to True.')
     parser.add_argument('--single', action="store_true",
         help='When set to `True`, data will be plotted on the same figure.')
 
