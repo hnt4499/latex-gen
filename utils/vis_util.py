@@ -1,5 +1,5 @@
 from .others_util import convert
-
+import numpy as np
 
 def is_outlier(points, thresh=3.5):
     """
@@ -26,6 +26,9 @@ def is_outlier(points, thresh=3.5):
         This function was taken from:
             https://stackoverflow.com/a/11886564
     """
+    # Sanity check
+    points = convert(points, np.asarray, np.ndarray)
+
     if len(points.shape) == 1:
         points = points[:,None]
     median = np.median(points, axis=0)
@@ -39,4 +42,6 @@ def is_outlier(points, thresh=3.5):
 
 
 def filter_outliers(points, thresh=3.5):
+    # Sanity check
+    points = convert(points, np.asarray, np.ndarray)
     return points[~is_outlier(points, thresh)]
