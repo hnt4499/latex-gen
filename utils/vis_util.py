@@ -1,3 +1,6 @@
+from .others_util import convert
+
+
 def is_outlier(points, thresh=3.5):
     """
     Returns a boolean array with True if points are outliers and False
@@ -33,3 +36,7 @@ def is_outlier(points, thresh=3.5):
     modified_z_score = 0.6745 * diff / med_abs_deviation
 
     return modified_z_score > thresh
+
+
+def filter_outliers(points, thresh=3.5):
+    return points[~is_outlier(points, thresh)]
