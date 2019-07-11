@@ -1,4 +1,4 @@
-def convert(x, convert_function, expected_type):
+def convert(x, convert_function, expected_type, force=False):
     """Convenience function to convert data types.
 
     Parameters
@@ -9,6 +9,9 @@ def convert(x, convert_function, expected_type):
         Function to apply to `x`.
     expected_type :
         Expected type of output data.
+    force: boolean
+        By default, if input data type matches expected type, there will be no
+        further transformation. Use `force=True` to force using `convert_function`.
 
     Returns
     -------
@@ -18,8 +21,11 @@ def convert(x, convert_function, expected_type):
     -------
         ValueError: Cannot convert input data to expected data type.
     """
-    try:
-        return convert_function(x)
-    except ValueError as e:
-        raise ValueError("Cannot convert input data of type {} to "
-                         "{}: {}".format(type(x), expected_type, e))
+    if (not isinstance(x, expected_type)) or force:
+        try:
+            return convert_function(x)
+        except ValueError as e:
+            raise ValueError("Cannot convert input data of type {} to "
+                             "{}: {}".format(type(x), expected_type, e))
+    else:
+        return x
