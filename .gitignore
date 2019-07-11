@@ -1,6 +1,5 @@
 im2markup/data
 
-data/**/*.json
 data/**/*.h5
 data/**/*.t7
 
