@@ -41,7 +41,42 @@ def is_outlier(points, thresh=3.5):
     return modified_z_score > thresh
 
 
-def filter_outliers(points, thresh=3.5):
+def _filter_outliers(points, thresh=3.5):
     # Sanity check
     points = convert(points, np.asarray, np.ndarray)
     return points[~is_outlier(points, thresh)]
+
+
+def filter_outliers(*points, thresh=3.5, mode="all"):
+    """Function to filter outliers given a number of arrays.
+
+    Parameters
+    ----------
+    *points : tuple
+        `*args` that can contains multiple points of different arrays.
+    thresh : type
+        The modified z-score to use as a threshold. Observations with
+        a modified z-score (based on the median absolute deviation) greater
+        than this value will be classified as outliers.
+    mode : 'all' or 'first' or 'last'
+        `all`: each collection of datapoints will be filtered with its mask.
+        `first`: only use mask of the first collection of points.
+        `last`: only use mask of the last collection of points.
+
+    Returns
+    -------
+    tuple
+        A tuple containing all filtered ndarrays.
+
+    """
+    if mode == "all":
+        return (_filter_outliers(point, thresh=thresh) for point in points)
+    elif mode == "first":
+        mask = is_outlier(points[0], thresh=thresh)
+        return (point[~mask] for point in points)
+    elif mode == "last":
+        mask = is_outlier(points[-1], thresh=thresh)
+        return (point[~mask] for point in points)
+    else:
+        raise ValueError("Invalid `mode` value. Expected: `all` or `first`"
+                         " or `last`. Got {} instead".format(mode))
