@@ -116,14 +116,11 @@ def main(args):
     info = [r"{}: {}".format(opt, data["opt"][opt]) for opt in info]
     ax.legend(handles=leg_line + [extra] * len(info),
               labels=leg_top + info,
-              # Format legend box
+              # Beautify the legends, taken from
+              #   https://stackoverflow.com/a/4701285
               loc='upper center',
               bbox_to_anchor=(0.5, 1.1),
               ncol=3, fancybox=True, shadow=True)
-    # Beautify the legends, taken from
-    #   https://stackoverflow.com/a/4701285
-    # ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
-    #           ncol=3, fancybox=True, shadow=True)
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
 
