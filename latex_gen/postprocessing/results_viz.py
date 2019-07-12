@@ -34,13 +34,13 @@ def main(args):
     # Get data
     train_y = np.asarray(data["train_loss_history"], dtype=np.float32)
     val_y = np.asarray(data["val_loss_history"], dtype=np.float32)
-    # Perform outliers filtering
-    if args.ignore_outliers:
-        train_y = filter_outliers(train_y, thresh=args.threshold)
-        val_y = filter_outliers(val_y, thresh=args.threshold)
     # Get x value (similar to `time step`)
     train_x = get_x(num_steps=train_y.shape[0], step=1)
     val_x = get_x(num_steps=val_y.shape[0], step=data["opt"]["checkpoint_every"])
+    # Perform outliers filtering
+    if args.ignore_outliers:
+        train_x, train_y = filter_outliers(train_x, train_y, thresh=args.threshold, mode="last")
+        val_x, val_y = filter_outliers(val_x, val_y, thresh=args.threshold, mode="last")
     # Formalize xmax and xmin
     train_xmin = get_minmax(train_xmin, default_value=0)
     val_xmin = get_minmax(val_xmin, default_value=0)
@@ -56,16 +56,25 @@ def main(args):
         plt.xlim(left=xmin, right=xmax)
         plt.plot(train_x[::train_step], train_y[::train_step])
         plt.plot(val_x[::val_step], val_y[::val_step])
+        plt.xlabel("Steps")
+        plt.ylabel("Loss")
+        plt.legend(["Training loss", "Validation loss"])
     # Else, plot two subplots
     else:
         # Plot train data
         ax1 = plt.subplot(211)
         ax1.xlim(left=train_xmin, right=train_xmax)
         ax1.plot(train_x[::train_step], train_y[::train_step])
+        ax1.xlabel("Steps")
+        ax1.ylabel("Loss")
+        ax1.legend("Training loss")
         # Plot val data
         ax2 = plt.subplot(212)
         ax2.xlim(left=val_xmin, right=val_xmax)
         ax2.plot(val_x[::val_step], val_y[::val_step])
+        ax1.xlabel("Steps")
+        ax1.ylabel("Loss")
+        ax1.legend("Validation loss")
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
 
