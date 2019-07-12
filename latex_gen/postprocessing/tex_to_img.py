@@ -10,7 +10,7 @@ Author: Hoang Nghia Tuyen
 import sys
 import os
 import argparse
-from utils.tex_util import tex_to_img
+from latex_gen.utils.tex_util import tex_to_img
 from tqdm import tqdm
 
 
