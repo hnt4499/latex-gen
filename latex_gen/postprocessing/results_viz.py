@@ -2,9 +2,12 @@ DESCRIPTION = '''
 This script processes a `.json` file generated during training to visualize
 the results.
 '''
+import json
+import sys
+import argparse
+
 import matplotlib.pyplot as plt
 import numpy as np
-import json
 from latex_gen.utils.vis_util import filter_outliers
 
 
@@ -46,7 +49,7 @@ def main(args):
         val_y = filter_outliers(val_y, thresh=args.threshold)
 
     train_x = get_x(num_steps=train_y.shape[0], step=1)
-    val_x = get_x(num_steps=val_y.shape[0], step=data["checkpoint_every"])
+    val_x = get_x(num_steps=val_y.shape[0], step=data["opt"]["checkpoint_every"])
     # Plot figure(s)
     fig = plt.figure(figsize=fig_size)
     # If single mode is activated
@@ -60,11 +63,11 @@ def main(args):
     # Else, plot two subplots
     else:
         # Plot train data
-        ax1 = plt.subplot(121)
+        ax1 = plt.subplot(211)
         ax1.set_xlim(left=train_xmin, right=train_xmax)
         ax1.plot(train_x[::train_step], train_y[::train_step])
         # Plot val data
-        ax2 = plt.subplot(122)
+        ax2 = plt.subplot(212)
         ax2.set_xlim(left=val_xmin, right=val_xmax)
         ax2.plot(val_x[::val_step], val_y[::val_step])
     # Save figure
