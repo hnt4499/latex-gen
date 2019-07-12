@@ -10,3 +10,6 @@ A project implementing the idea of generating arbitrary LaTeX formulas using LST
  - [ ] Weekly reports *(in progress)*
  - [ ] Technical details
  - [ ] References
+
+
+> For more information on the progress of the project, see `REPORTS.md`
