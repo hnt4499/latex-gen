@@ -5,7 +5,7 @@ the results.
 import matplotlib.pyplot as plt
 import numpy as np
 import json
-from .utils.vis_util import filter_outliers
+from latex_gen.utils.vis_util import filter_outliers
 
 
 def get_x(num_steps, step):
