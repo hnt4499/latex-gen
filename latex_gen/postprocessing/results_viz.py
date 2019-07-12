@@ -19,14 +19,6 @@ def get_minmax(x, default_value):
     return default_value if x is None else x
 
 
-def get_kwargs(mi, ma):
-    # Just a fun and convenience function
-    d = {}
-    if mi: d["left"] = mi
-    if ma: d["right"] = ma
-    return d
-
-
 def main(args):
     # Read some arguments
     fig_size = (args.fig_width, args.fig_height)
@@ -60,7 +52,7 @@ def main(args):
     if args.single:
         xmin = min(train_xmin, val_xmin)
         xmax = max(train_xmax, val_xmax)
-        # Set min and max value of axes if both are specified
+        # Set min and max value of axes
         plt.xlim(left=xmin, right=xmax)
         plt.plot(train_x[::train_step], train_y[::train_step])
         plt.plot(val_x[::val_step], val_y[::val_step])
@@ -68,11 +60,11 @@ def main(args):
     else:
         # Plot train data
         ax1 = plt.subplot(211)
-        plt.xlim(left=train_xmin, right=train_xmax)
+        ax1.xlim(left=train_xmin, right=train_xmax)
         ax1.plot(train_x[::train_step], train_y[::train_step])
         # Plot val data
         ax2 = plt.subplot(212)
-        plt.xlim(left=val_xmin, right=val_xmax)
+        ax2.xlim(left=val_xmin, right=val_xmax)
         ax2.plot(val_x[::val_step], val_y[::val_step])
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
