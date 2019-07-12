@@ -90,7 +90,9 @@ def parse_arguments(argv):
         help='Path to the output file (`.png` or `.jpg`).')
 
     parser.add_argument('--ignore_outliers', action="store_true",
-        help='Whether to ignore outliers when processing `.json` file.')
+        help='Whether to ignore outliers when processing `.json` file. '
+             'NOTE: this option might not work appropriately when '
+             'using with `--single` option. Try setting ymin and ymax instead.')
     parser.add_argument('--threshold', type=float, default=3.5,
         help='Threshold to compare to `z-score`. Only used '
              'when `ignore_outliers` is set to True.')
@@ -119,6 +121,15 @@ def parse_arguments(argv):
         help='Minimum value on x-axis of the `val` figure.')
     parser.add_argument('--val_xmax', type=int, default=None,
         help='Maximum value on x-axis of the `val` figure.')
+
+    parser.add_argument('--train_ymin', type=int, default=None,
+        help='Minimum value on y-axis of the `train` figure.')
+    parser.add_argument('--train_ymax', type=int, default=None,
+        help='Maximum value on y-axis of the `train` figure.')
+    parser.add_argument('--val_ymin', type=int, default=None,
+        help='Minimum value on y-axis of the `val` figure.')
+    parser.add_argument('--val_ymax', type=int, default=None,
+        help='Maximum value on y-axis of the `val` figure.')
     return parser.parse_args(argv)
 
 if __name__ == '__main__':
