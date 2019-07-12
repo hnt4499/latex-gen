@@ -15,15 +15,8 @@ def get_x(num_steps, step):
     return np.arange(start=step, stop=step * num_steps + 1, step=step)
 
 
-def get_minmax(x1, x2, mode):
-    # If both are not None
-    if x1 and x2:
-        return mode(x1, x2)
-    # If both is None
-    elif (not x1) and (not x2):
-        return None
-    else:
-        return x1 if x1 else x2
+def get_minmax(x, default_value):
+    return default_value if x is None else x
 
 
 def get_kwargs(mi, ma):
@@ -46,34 +39,41 @@ def main(args):
     # Load json
     with open(args.input_json, "r") as j:
         data = json.load(j)
-
+    # Get data
     train_y = np.asarray(data["train_loss_history"], dtype=np.float32)
     val_y = np.asarray(data["val_loss_history"], dtype=np.float32)
+    # Perform outliers filtering
     if args.ignore_outliers:
         train_y = filter_outliers(train_y, thresh=args.threshold)
         val_y = filter_outliers(val_y, thresh=args.threshold)
-
+    # Get x value (similar to `time step`)
     train_x = get_x(num_steps=train_y.shape[0], step=1)
     val_x = get_x(num_steps=val_y.shape[0], step=data["opt"]["checkpoint_every"])
+    # Formalize xmax and xmin
+    train_xmin = get_minmax(train_xmin, default_value=0)
+    val_xmin = get_minmax(val_xmin, default_value=0)
+    train_xmax = get_minmax(train_xmax, default_value=train_x[-1])
+    val_xmax = get_minmax(val_xmax, default_value=val_x[-1])
     # Plot figure(s)
     fig = plt.figure(figsize=fig_size)
     # If single mode is activated
     if args.single:
-        xmin = get_minmax(train_xmin, val_xmin, min)
-        xmax = get_minmax(train_xmax, val_xmax, max)
+        xmin = min(train_xmin, val_xmin)
+        xmax = max(train_xmax, val_xmax)
         # Set min and max value of axes if both are specified
-        plt.xlim(**get_kwargs(xmin, xmax))
+        plt.xlim(left=xmin, right=xmax)
         plt.plot(train_x[::train_step], train_y[::train_step])
         plt.plot(val_x[::val_step], val_y[::val_step])
     # Else, plot two subplots
     else:
         # Plot train data
         ax1 = plt.subplot(211)
-        plt.xlim(**get_kwargs(train_xmin, train_xmax))
+        plt.xlim(left=train_xmin, right=train_xmax)
+        print(get_kwargs(train_xmin, train_xmax))
         ax1.plot(train_x[::train_step], train_y[::train_step])
         # Plot val data
         ax2 = plt.subplot(212)
-        plt.xlim(**get_kwargs(val_xmin, val_xmax))
+        plt.xlim(left=val_xmin, right=val_xmax)
         ax2.plot(val_x[::val_step], val_y[::val_step])
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
