@@ -9,6 +9,7 @@ import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 from latex_gen.utils.vis_util import filter_outliers
+from matplotlib.patches import Rectangle
 
 
 def get_x(num_steps, step):
@@ -20,6 +21,17 @@ def get_minmax(*args):
     for x, default_value in args:
         minmax.append(default_value if x is None else x)
     return tuple(minmax)
+
+
+def plot(ax, xdata, ydata,
+         xmin, xmax, ymin, ymax,
+         xlabel="Steps", ylabel="Loss"):
+    line = ax.plot(xdata, ydata)
+    ax.set_xlim(left=xmin, right=xmax)
+    ax.set_ylim(bottom=ymin, top=ymax)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    return line
 
 
 def main(args):
@@ -50,6 +62,8 @@ def main(args):
     if args.ignore_outliers:
         train_x, train_y = filter_outliers(train_x, train_y, thresh=args.threshold, mode="last")
         val_x, val_y = filter_outliers(val_x, val_y, thresh=args.threshold, mode="last")
+    # Placeholder for extra legend
+    extra = Rectangle((0, 0), 1, 1, fc="w", fill=False, edgecolor='none', linewidth=0)
     # Formalize xmax and xmin
     train_xmin, train_xmax, train_ymin, train_ymax = get_minmax(
         (train_xmin, min(train_x)),
@@ -72,31 +86,44 @@ def main(args):
         ymin = min(train_ymin, val_ymin)
         ymax = max(train_ymax, val_ymax)
         # Set min and max value of axes
-        plt.xlim(left=xmin, right=xmax)
-        plt.ylim(bottom=ymin, top=ymax)
-        plt.plot(train_x[::train_step], train_y[::train_step])
-        plt.plot(val_x[::val_step], val_y[::val_step])
-        plt.xlabel("Steps")
-        plt.ylabel("Loss")
-        plt.legend(["Training loss", "Validation loss"])
+        ax = plt.subplot(111)
+        line1, = plot(ax, train_x[::train_step], train_y[::train_step],
+                      xmin, xmax, ymin, ymax)
+        line2, = plot(ax, val_x[::val_step], val_y[::val_step],
+                      xmin, xmax, ymin, ymax)
+        # Legend to put on top
+        leg_top = ["train_loss", "val_loss"]
+        leg_line = [line1, line2]
     # Else, plot two subplots
     else:
         # Plot train data
-        plt.subplot(211)
-        plt.xlim(left=train_xmin, right=train_xmax)
-        plt.ylim(bottom=train_ymin, top=train_ymax)
-        plt.plot(train_x[::train_step], train_y[::train_step])
-        plt.xlabel("Steps")
-        plt.ylabel("Loss")
-        plt.legend(["Training loss"])
+        ax = plt.subplot(211)
+        line, = plot(ax, train_x[::train_step], train_y[::train_step],
+                     train_xmin, train_xmax, train_ymin, train_ymax)
         # Plot val data
-        plt.subplot(212)
-        plt.xlim(left=val_xmin, right=val_xmax)
-        plt.ylim(bottom=val_ymin, top=val_ymax)
-        plt.plot(val_x[::val_step], val_y[::val_step])
-        plt.xlabel("Steps")
-        plt.ylabel("Loss")
-        plt.legend(["Validation loss"])
+        ax2 = plt.subplot(212)
+        plot(ax2, val_x[::val_step], val_y[::val_step],
+             val_xmin, val_xmax, val_ymin, val_ymax)
+        # Legend to put on top
+        leg_top = ["train_loss"]
+        leg_line = [line]
+        # Set legend "val_loss" independently
+        ax2.legend(["val_loss"])
+    # Add additional information. The idea of extra legend was taken from
+    #   https://stackoverflow.com/a/16827257
+    info = ["batch_size", "wordvec_size", "seq_length", "num_layers",
+            "rnn_size", "dropout", "learning_rate", "lr_decay_factor"]
+    info = [r"{}: {}".format(opt, data["opt"][opt]) for opt in info]
+    ax.legend(handles=leg_line + [extra] * len(info),
+              labels=leg_top + info,
+              # Format legend box
+              loc='upper center',
+              bbox_to_anchor=(0.5, 1.1),
+              ncol=3, fancybox=True, shadow=True)
+    # Beautify the legends, taken from
+    #   https://stackoverflow.com/a/4701285
+    # ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+    #           ncol=3, fancybox=True, shadow=True)
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
 
