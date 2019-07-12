@@ -1,12 +1,14 @@
+# im2markup unnecessary files
 im2markup/data
-
+im2markup/log.txt
+# Checkpoints graphs
 data/**/*.h5
 data/**/*.t7
-
-im2markup/log.txt
-
+# Notebook checkpoints
 .ipynb_checkpoints/*
-
+# Package cache stuff
 **/__pycache__
 **/__pycache__/*
 **/*.pyc
+# Testing files
+test*
