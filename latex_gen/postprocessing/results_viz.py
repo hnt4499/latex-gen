@@ -15,18 +15,27 @@ def get_x(num_steps, step):
     return np.arange(start=step, stop=step * num_steps + 1, step=step)
 
 
-def get_minmax(x, default_value):
-    return default_value if x is None else x
+def get_minmax(*args):
+    minmax = []
+    for x, default_value in args:
+        minmax.append(default_value if x is None else x)
+    return tuple(minmax)
 
 
 def main(args):
     # Read some arguments
     fig_size = (args.fig_width, args.fig_height)
+
     train_xmin = args.train_xmin
     train_xmax = args.train_xmax
+    train_ymin = args.train_ymin
+    train_ymax = args.train_ymax
     train_step = args.train_step
+
     val_xmin = args.val_xmin
     val_xmax = args.val_xmax
+    val_ymin = args.val_ymin
+    val_ymax = args.val_ymax
     val_step = args.val_step
     # Load json
     with open(args.input_json, "r") as j:
@@ -42,18 +51,29 @@ def main(args):
         train_x, train_y = filter_outliers(train_x, train_y, thresh=args.threshold, mode="last")
         val_x, val_y = filter_outliers(val_x, val_y, thresh=args.threshold, mode="last")
     # Formalize xmax and xmin
-    train_xmin = get_minmax(train_xmin, default_value=0)
-    val_xmin = get_minmax(val_xmin, default_value=0)
-    train_xmax = get_minmax(train_xmax, default_value=train_x[-1])
-    val_xmax = get_minmax(val_xmax, default_value=val_x[-1])
+    train_xmin, train_xmax, train_ymin, train_ymax = get_minmax(
+        (train_xmin, min(train_x)),
+        (train_xmax, max(train_x)),
+        (train_ymin, min(train_y)),
+        (train_ymax, max(train_y))
+    )
+    val_xmin, val_xmax, val_ymin, val_ymax = get_minmax(
+        (val_xmin, min(val_x)),
+        (val_xmax, max(val_x)),
+        (val_ymin, min(val_y)),
+        (val_ymax, max(val_y))
+    )
     # Plot figure(s)
     fig = plt.figure(figsize=fig_size)
     # If single mode is activated
     if args.single:
         xmin = min(train_xmin, val_xmin)
         xmax = max(train_xmax, val_xmax)
+        ymin = min(train_ymin, val_ymin)
+        ymax = max(train_ymax, val_ymax)
         # Set min and max value of axes
         plt.xlim(left=xmin, right=xmax)
+        plt.ylim(bottom=ymin, top=ymax)
         plt.plot(train_x[::train_step], train_y[::train_step])
         plt.plot(val_x[::val_step], val_y[::val_step])
         plt.xlabel("Steps")
@@ -62,19 +82,21 @@ def main(args):
     # Else, plot two subplots
     else:
         # Plot train data
-        ax1 = plt.subplot(211)
-        ax1.xlim(left=train_xmin, right=train_xmax)
-        ax1.plot(train_x[::train_step], train_y[::train_step])
-        ax1.xlabel("Steps")
-        ax1.ylabel("Loss")
-        ax1.legend("Training loss")
+        plt.subplot(211)
+        plt.xlim(left=train_xmin, right=train_xmax)
+        plt.ylim(bottom=train_ymin, top=train_ymax)
+        plt.plot(train_x[::train_step], train_y[::train_step])
+        plt.xlabel("Steps")
+        plt.ylabel("Loss")
+        plt.legend(["Training loss"])
         # Plot val data
-        ax2 = plt.subplot(212)
-        ax2.xlim(left=val_xmin, right=val_xmax)
-        ax2.plot(val_x[::val_step], val_y[::val_step])
-        ax1.xlabel("Steps")
-        ax1.ylabel("Loss")
-        ax1.legend("Validation loss")
+        plt.subplot(212)
+        plt.xlim(left=val_xmin, right=val_xmax)
+        plt.ylim(bottom=val_ymin, top=val_ymax)
+        plt.plot(val_x[::val_step], val_y[::val_step])
+        plt.xlabel("Steps")
+        plt.ylabel("Loss")
+        plt.legend(["Validation loss"])
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
 
