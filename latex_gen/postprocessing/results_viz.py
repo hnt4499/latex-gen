@@ -69,7 +69,6 @@ def main(args):
         # Plot train data
         ax1 = plt.subplot(211)
         plt.xlim(left=train_xmin, right=train_xmax)
-        print(get_kwargs(train_xmin, train_xmax))
         ax1.plot(train_x[::train_step], train_y[::train_step])
         # Plot val data
         ax2 = plt.subplot(212)
