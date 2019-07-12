@@ -26,6 +26,14 @@ def get_minmax(x1, x2, mode):
         return x1 if x1 else x2
 
 
+def get_kwargs(mi, ma):
+    # Just a fun and convenience function
+    d = {}
+    if mi: d["left"] = mi
+    if ma: d["right"] = ma
+    return d
+
+
 def main(args):
     # Read some arguments
     fig_size = (args.fig_width, args.fig_height)
@@ -35,9 +43,6 @@ def main(args):
     val_xmin = args.val_xmin
     val_xmax = args.val_xmax
     val_step = args.val_step
-    # Compare type
-    assert isinstance(train_xmin, type(train_xmax))
-    assert isinstance(val_xmin, type(val_xmax))
     # Load json
     with open(args.input_json, "r") as j:
         data = json.load(j)
@@ -57,18 +62,18 @@ def main(args):
         xmin = get_minmax(train_xmin, val_xmin, min)
         xmax = get_minmax(train_xmax, val_xmax, max)
         # Set min and max value of axes if both are specified
-        plt.xlim(left=xmin, right=xmax)
+        plt.xlim(**get_kwargs(xmin, xmax))
         plt.plot(train_x[::train_step], train_y[::train_step])
         plt.plot(val_x[::val_step], val_y[::val_step])
     # Else, plot two subplots
     else:
         # Plot train data
         ax1 = plt.subplot(211)
-        ax1.set_xlim(left=train_xmin, right=train_xmax)
+        plt.xlim(**get_kwargs(train_xmin, train_xmax))
         ax1.plot(train_x[::train_step], train_y[::train_step])
         # Plot val data
         ax2 = plt.subplot(212)
-        ax2.set_xlim(left=val_xmin, right=val_xmax)
+        plt.xlim(**get_kwargs(val_xmin, val_xmax))
         ax2.plot(val_x[::val_step], val_y[::val_step])
     # Save figure
     plt.savefig(fname=args.output_file, dpi=args.dpi)
@@ -99,7 +104,7 @@ def parse_arguments(argv):
     parser.add_argument('--dpi', type=int, default=None,
         help='DPI of the figure.')
 
-    parser.add_argument('--train_step', type=int, default=1,
+    parser.add_argument('--train_step', type=int, default=1000,
         help='Step to process the training losses.')
     parser.add_argument('--val_step', type=int, default=1,
         help='Step to process the validation losses. '
