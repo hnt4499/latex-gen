@@ -159,22 +159,22 @@ def parse_arguments(argv):
              'NOTE: By default, validation loss is computed every 1000 '
              'iterations, so you won\'t probably need to use this option.')
 
-    parser.add_argument('--train_xmin', type=int, default=None,
+    parser.add_argument('--train_xmin', type=float, default=None,
         help='Minimum value on x-axis of the `train` figure.')
-    parser.add_argument('--train_xmax', type=int, default=None,
+    parser.add_argument('--train_xmax', type=float, default=None,
         help='Maximum value on x-axis of the `train` figure.')
-    parser.add_argument('--val_xmin', type=int, default=None,
+    parser.add_argument('--val_xmin', type=float, default=None,
         help='Minimum value on x-axis of the `val` figure.')
-    parser.add_argument('--val_xmax', type=int, default=None,
+    parser.add_argument('--val_xmax', type=float, default=None,
         help='Maximum value on x-axis of the `val` figure.')
 
-    parser.add_argument('--train_ymin', type=int, default=None,
+    parser.add_argument('--train_ymin', type=float, default=None,
         help='Minimum value on y-axis of the `train` figure.')
-    parser.add_argument('--train_ymax', type=int, default=None,
+    parser.add_argument('--train_ymax', type=float, default=None,
         help='Maximum value on y-axis of the `train` figure.')
-    parser.add_argument('--val_ymin', type=int, default=None,
+    parser.add_argument('--val_ymin', type=float, default=None,
         help='Minimum value on y-axis of the `val` figure.')
-    parser.add_argument('--val_ymax', type=int, default=None,
+    parser.add_argument('--val_ymax', type=float, default=None,
         help='Maximum value on y-axis of the `val` figure.')
     return parser.parse_args(argv)
 
