@@ -145,9 +145,9 @@ def parse_arguments(argv):
     parser.add_argument('--single', action="store_true",
         help='When set to `True`, data will be plotted on the same figure.')
 
-    parser.add_argument('--fig_width', type=int, default=20,
+    parser.add_argument('--fig_width', type=int, default=10,
         help='Width of the figure.')
-    parser.add_argument('--fig_height', type=int, default=20,
+    parser.add_argument('--fig_height', type=int, default=10,
         help='Height of the figure.')
     parser.add_argument('--dpi', type=int, default=None,
         help='DPI of the figure.')
