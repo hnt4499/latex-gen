@@ -3,7 +3,7 @@ import os
 import subprocess
 import random
 import string
-from shutil import copy
+from shutil import copy, SameFileError
 
 
 def write_tex(tex_path, text):
@@ -88,13 +88,95 @@ def tex_to_img(text, output_path, dpi, tmp_dir):
         # from the dvi output from the last script
         code = dvi_to_png(dvi_path=tmp_dvi_path, png_path=tmp_png_path,
                           dpi=dpi, stdout=stdout, stderr=stderr)
-        if code != 0:
-            print("\nError generating {}. "
-                  "Returned code {}".format(tmp_png_path, code))
-        else:
-            # Copy final file to `output_path` and clean up
+    # If error generating image, keep all the intermediate files for inspecting.
+    if code != 0:
+        print("\nError generating {}. "
+              "Returned code {}".format(tmp_png_path, code))
+    else:
+        # Copy final file to `output_path` and clean up
+        try:
             copy(tmp_png_path, output_path)
+            os.system("rm -rf {} {}".format(tmp_dvi_path, tmp_tex_path))
+        # If SameFileError, remove all intermediate files except the `.png` file.
+        except SameFileError:
+            os.system("ls {}* | grep -v {} | xargs rm".format(tmp_file, tmp_png_path))
 
-    os.system("rm -rf {}*".format(tmp_file))
     # Change back to original working directory
     os.chdir(cwd)
+
+
+class TeX():
+    def __init__(self, text):
+        """Initialize a TeX class containing sequence(s)
+        of raw TeX formulas and can be manipulated to generate `.tex`,
+        `.dvi` or `.png` files.
+
+        Parameters
+        ----------
+        text : str or list of str or None
+            Contains raw TeX formula(s).
+
+        """
+        self.text = []
+        self.add(text)
+
+    def add(self, text):
+        if text is not None:
+            if isinstance(text, list):
+                self.text.extend(text)
+            else:
+                self.text.append(text)
+
+    def to_tex(self, tex_path):
+        if self.text == []:
+            return
+        write_tex(tex_path, self.text)
+
+
+class AutoTeX(TeX):
+    def __init__(self, length, *args):
+        """Automate the process of generating metadata from TeX formulas.
+
+        Parameters
+        ----------
+        length : int
+            Number of formulas to keep, must be greater or equal 1.
+            If `len(self.text)` reached `self.length`, the functions in *args
+            are executed sequentially.
+        *args : callable(s)
+            Functions to perform when the number of formulas stored reaches.
+            These funtions must accept only one argument, `text` stored.
+
+        """
+        assert length >= 1
+        self.length = length
+        self.f = args
+        super().__init__(self, text=None)
+
+    def release(self, *args):
+        """
+        If `*arg` is provided explicitly, self.f is discarded.
+        """
+        if self.text == []:
+            return
+        if args != ():
+            self.f = args
+        for function in self.f:
+            function(self.text)
+        self.text = []
+
+    def _add(self, text, *args):
+        """
+        Convenience function, only accept text as a single string.
+        """
+        assert isinstance(text, str)
+        self.text.append(text)
+        if len(self.text) == self.length:
+            self.release(args)
+
+    def add(self, text, *args):
+        if isinstance(text, str):
+            self._add(text, args)
+        else:
+            for formula in text:
+                self._add(formula, args)
