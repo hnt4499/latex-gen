@@ -82,6 +82,7 @@ def main(args):
                 fout.write(' '.join(tokens_out)+'\n')
     os.remove(temp_file)
 
+
 if __name__ == '__main__':
     main(sys.argv[1:])
     logging.info('Jobs finished')

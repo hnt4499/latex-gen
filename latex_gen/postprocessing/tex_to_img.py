@@ -103,5 +103,6 @@ def parse_arguments(argv):
 
     return parser.parse_args(argv)
 
+
 if __name__ == '__main__':
     main(parse_arguments(sys.argv[1:]))
