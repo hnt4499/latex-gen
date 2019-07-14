@@ -10,8 +10,10 @@ Author: Hoang Nghia Tuyen
 import sys
 import os
 import argparse
-from latex_gen.utils.tex_util import tex_to_img
+
 from tqdm import tqdm
+
+from latex_gen.utils.tex_util import tex_to_img
 
 
 # Mimics the `which` unix command
