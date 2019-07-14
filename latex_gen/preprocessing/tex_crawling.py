@@ -17,6 +17,8 @@ def main(args):
     # Read arguments
     text_input = args.text_input
     text_output = args.text_output
+    min_len = args.min_len
+    max_len = args.max_len
     # Read input data
     with open(text_input, "r", encoding=args.encoding) as file:
         data = file.read().replace("\n", " ") # replace newline char with space.
@@ -26,9 +28,11 @@ def main(args):
     # Write output data
     with open(text_output, "w") as out:
         for formula in formulas:
-            out.write(formula + "\n")
+            if min_len <= len(formula) <= max_len:
+                out.write(formula + "\n")
         for formula in small_formulas:
-            out.write(formula + "\n")
+            if min_len <= len(formula) <= max_len:
+                out.write(formula + "\n")
 
 
 def parse_arguments(argv):
@@ -43,6 +47,10 @@ def parse_arguments(argv):
 
     parser.add_argument('--encoding', type=str, default="utf-8",
         help='Decoder(s) to try for input data.')
+    parser.add_argument('--min_len', type=int, default=3,
+        help='Minimum length of sequences to keep')
+    parser.add_argument('--max_len', type=int, default=1000,
+        help='Maximum length of sequences to keep')
 
     return parser.parse_args(argv)
 
