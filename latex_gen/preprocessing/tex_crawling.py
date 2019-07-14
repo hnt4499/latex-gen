@@ -9,7 +9,9 @@ import re
 
 
 REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*\s*(.*?)\s*\\end\{(?:equation\*?|split)\}"
-
+# The below regex pattern is used to find small, in-line formulas
+# that do not start with \begin{equation}
+REGEX_PATTERN_2 = r"\$+(.*?)\$+"
 
 def main(args):
     # Read arguments
@@ -20,9 +22,12 @@ def main(args):
         data = file.read().replace("\n", " ") # replace newline char with space.
     # Use regular expression to extract data
     formulas = re.findall(REGEX_PATTERN, data)
+    small_formulas = re.findall(REGEX_PATTERN_2, data)
     # Write output data
     with open(text_output, "w") as out:
         for formula in formulas:
+            out.write(formula + "\n")
+        for formula in small_formulas:
             out.write(formula + "\n")
 
 
