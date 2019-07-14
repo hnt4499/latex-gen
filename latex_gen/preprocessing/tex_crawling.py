@@ -5,7 +5,26 @@ text file.
 import os
 import sys
 import argparse
+import re
 
+
+REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*(.*?)\\end\{(?:equation\*?|split)\}"
+
+
+def main(args):
+    # Read arguments
+    text_input = args.text_input
+    text_output = args.text_output
+    # Read input data
+    with open(text_input, "r", encoding=args.encoding) as file:
+        data = file.read().replace("\n", " ") # replace newline char with space.
+    # Use regular expression to extract data
+    formulas = re.findall(REGEX_PATTERN, data)
+    # Write output data
+    with open(text_output, "w") as out:
+        for formula in formulas:
+            out.write(formula)
+            
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser(
@@ -14,14 +33,9 @@ def parse_arguments(argv):
 
     parser.add_argument('text_input', type=str,
         help='Path to the input text file.')
+    parser.add_argument('text_output', type=str,
+        help='Path to the output text file.')
 
-    parser.add_argument('--num_display', type=int, default=10,
-        help='Number of formulas to display at a time. '
-             'Must be not too large (<=15).')
-    parser.add_argument('--dpi', type=int, default=120,
-        help='DPI (resolution) of displaying images.')
-    parser.add_argument('--tmp_dir', type=str, default="/tmp",
-        help='Directory to store all temporary files.')
     parser.add_argument('--encoding', type=str, default="utf-8",
         help='Decoder(s) to try for input data.')
 
