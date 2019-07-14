@@ -11,7 +11,7 @@ import re
 REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*\s*(.*?)\s*\\end\{(?:equation\*?|split)\}"
 # The below regex pattern is used to find small, in-line formulas
 # that do not start with \begin{equation}
-REGEX_PATTERN_2 = r"\$+(.*?)\$+"
+REGEX_PATTERN_2 = r"\$+\s*(.*?)\s*\$+"
 
 def main(args):
     # Read arguments
