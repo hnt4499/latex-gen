@@ -8,7 +8,7 @@ import argparse
 import re
 
 
-REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*(.*?)\\end\{(?:equation\*?|split)\}"
+REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*\s*(.*?)\s*\\end\{(?:equation\*?|split)\}"
 
 
 def main(args):
@@ -23,8 +23,8 @@ def main(args):
     # Write output data
     with open(text_output, "w") as out:
         for formula in formulas:
-            out.write(formula)
-            
+            out.write(formula + "\n")
+
 
 def parse_arguments(argv):
     parser = argparse.ArgumentParser(
