@@ -56,7 +56,7 @@
 
 - Results visualization for all trained models:
 
-	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in  the 
+	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab.
 	
 | Training results |
 |--|
@@ -69,5 +69,5 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NTI4ODU2LDE5NjA2NTkzNjhdfQ==
+eyJoaXN0b3J5IjpbMTMzNjYwMDY2NSwxOTYwNjU5MzY4XX0=
 -->
