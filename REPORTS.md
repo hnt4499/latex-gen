@@ -62,18 +62,18 @@
 
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png "Sampled formulas") 
 
-- -  The third model was trained on the processed dataset. Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas `(3)` and `(4)`, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset.
-	
-![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_1938/training.jpg "Training results")
-![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_1938/sample_batch/20190709_1938_65.png "Sampled formulas")
-
 - -  The second model was trained on the "un-processed" dataset (only processed with [`torch-rnn/scripts/preprocess.py`](https://github.com/jcjohnson/torch-rnn/blob/master/scripts/preprocess.py) to tokenize input data, without normalizing and removing outliers). Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas `(3)` and `(4)`, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset.
 	
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
 
+- - With the only difference to the second model is the dataset, it is not surprising that this model produces similar results.
+	
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
+![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MjA2ODUwOSwxMzkwMTE0ODc2LC0zNT
-c2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1NjcwNDc5
-NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
+eyJoaXN0b3J5IjpbLTE1MDQ2NDE1MzMsMTM5MDExNDg3NiwtMz
+U3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYzMjIyOSw5NTY3MDQ3
+OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl19
 -->
