@@ -56,7 +56,7 @@
 
 - Results visualization for all trained models:
 
-	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Here is the training results and formulas sampled from trained model:
+	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, 
 	
 | Training results |
 |--|
@@ -66,8 +66,8 @@
 |--|
 | ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) |
 
- - List item
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2ODc5NjQ5Nl19
+eyJoaXN0b3J5IjpbMTk2MDY1OTM2OF19
 -->
