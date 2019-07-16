@@ -46,6 +46,9 @@ def main(args):
             small_formulas = list(map(lambda x: "".join(x), small_formulas))
             # Write output data
             for formula in formulas:
+                # Filter out some incorrect formulas
+                if "the " in formula or "this" in formula:
+                    continue
                 if min_len <= len(formula) <= max_len:
                     out.write(formula + "\n")
             for formula in small_formulas:
