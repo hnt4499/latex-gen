@@ -67,13 +67,14 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
 
-- - With the only difference to the second model is the dataset, it is not surprising that this model produces similar results.
+- - With the only difference is the dataset, it is not surprising that this model produces similar results to the second model. When inspecting carefully, it turns out that this model produces slightly cleaner result. However, the brackets problem still persists.
 	
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDQ2NDE1MzMsMTM5MDExNDg3NiwtMz
-U3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYzMjIyOSw5NTY3MDQ3
-OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl19
+eyJoaXN0b3J5IjpbLTkwMjgyNjM5MSwtMTUwNDY0MTUzMywxMz
+kwMTE0ODc2LC0zNTc2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMy
+MjI5LDk1NjcwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX
+0=
 -->
