@@ -61,4 +61,13 @@
 Training results             |  Sampled formulas
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/training.jpg)  |  ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png)
+
+	- The second model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Here is the training results and formulas sampled from trained model:
+	
+Training results             |  Sampled formulas
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/training.jpg)  |  ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png)
 	- 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTYzMzU2MjE2N119
+-->
