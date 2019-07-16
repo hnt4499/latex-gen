@@ -9,10 +9,15 @@ import re
 
 from tqdm import tqdm
 
-REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}\s?)*\s*(.*?)\s*\\end\{(?:equation\*?|split)\}"
+# REGEX_PATTERN = r"\\(?:begin\{equation\*?\})\s?(?:\\(?:begin|label)\{(?:.*?)\}(?:.*?))*\s*(.*?)\s*(?:\\label\s?\{(?:.*?)\})?\s*\\end\{(?:equation\*?|split)\}"
+REGEX_PATTERN = r"[^\{^(?:def)]\\(?:begin\{equation\*?\}|bq)\s*(?:\\(?:begin)\{[^(?:array)]*\}(?:.*?))*\s*(.*?)\s*\\(?:end\s?\{(?:equation\*?|split)\}|eq )"
+
 # The below regex pattern is used to find small, in-line formulas
 # that do not start with \begin{equation}
-REGEX_PATTERN_2 = r"\$+\s*(.*?)\s*\$+"
+REGEX_PATTERN_2 = r"(?:\$\s*(.*?)\s*\$|\$\$\s*(.*?)\s*\$\$)"
+# Note that r"\$+\s*(.*?)\s*\$+" is not used because the pattern "$$" can appear
+# inside the equation starting and ending with "$", which may introduces errors.
+# For example: ${\cA}(A;x^++1,x^-+1)$$={\cA}(A^m;x^+,x^-)$
 
 def main(args):
     # Read arguments
