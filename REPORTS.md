@@ -56,7 +56,7 @@
 
 - Results visualization for all trained models:
 
-	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this 
+	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this shallow approach is that it cannot capture that logic behind brackets. While in some short formulas like `(10)` and `(14)`
 	
 | Training results |
 |--|
@@ -69,5 +69,5 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg3NTEwNjg5LDE5NjA2NTkzNjhdfQ==
+eyJoaXN0b3J5IjpbNTMzNzgwMzE1LDE5NjA2NTkzNjhdfQ==
 -->
