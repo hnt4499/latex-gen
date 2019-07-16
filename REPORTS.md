@@ -82,10 +82,12 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
-- - The 
+- - The fifth model 
+
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNT
-A0NjQxNTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAy
-MDc1LC05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LD
-IxMTIxMDI5NzZdfQ==
+eyJoaXN0b3J5IjpbODEzNDE2NDg1LDE5NzQ4ODIyNzEsMTIzMD
+k4MDc1MiwtMTUwNDY0MTUzMywxMzkwMTE0ODc2LC0zNTc2MzAz
+MjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1NjcwNDc5NywtMT
+UyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
 -->
