@@ -72,13 +72,13 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
 
-- - With the only difference is the dataset, it is not surprising that this model produces similar results to the second model. When inspecting carefully, it turns out that this model produces slightly cleaner result. However, the brackets problem still persists.
+- - With the increase in the size of word embedding vectors and more intensive dropout, the model seems to learn the bracket logic
 	
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNDExODU3OCwxMjMwOTgwNzUyLC0xNT
+eyJoaXN0b3J5IjpbMTQ3ODQyNjk0NywxMjMwOTgwNzUyLC0xNT
 A0NjQxNTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAy
 MDc1LC05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LD
 IxMTIxMDI5NzZdfQ==
