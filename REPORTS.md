@@ -54,10 +54,10 @@
 	- [`tex_to_img.py`](https://github.com/hnt4499/latex-gen/blob/master/latex_gen/postprocessing/tex_to_img.py) :  Converts the sampled `.txt` file containing raw LaTeX formulas into images for visualization. 
 	- [`results_viz.py`](https://github.com/hnt4499/latex-gen/blob/master/latex_gen/postprocessing/results_viz.py): Automatically generates graphs from a `.json` file for training loss, validation loss as well as all hyperparameters specified during training into an image file.
 
+<ul>
+	<li> Results visualization for all trained models:</li>
 
-- Results visualization for all trained models:
-
-	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this shallow approach is that it cannot capture th logic behind brackets. While doing a good job in some short formulas like `(10)` and `(14)`, most of the brackets are not opened/closed correctly. Having said that, the model is able to generate quite long, complex formulas like `(12)` or `(15)` without introducing many errors, indicating that we can further improve from this model to achieve much better results. </p>
+   <ul> <li>The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this shallow approach is that it cannot capture th logic behind brackets. While doing a good job in some short formulas like `(10)` and `(14)`, most of the brackets are not opened/closed correctly. Having said that, the model is able to generate quite long, complex formulas like `(12)` or `(15)` without introducing many errors, indicating that we can further improve from this model to achieve much better results. </p>
 	
 | Training results |
 |--|
@@ -76,7 +76,11 @@
 | Sampled formulas |
 |--|
 | ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png) |
+
+
+
+</ul>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzA1MDEwNDMsLTk3MzYzMjIyOSw5NT
-Y3MDQ3OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl19
+eyJoaXN0b3J5IjpbMTkwMDk3MTgxNywtOTczNjMyMjI5LDk1Nj
+cwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
 -->
