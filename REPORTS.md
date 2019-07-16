@@ -54,34 +54,23 @@
 	- [`tex_to_img.py`](https://github.com/hnt4499/latex-gen/blob/master/latex_gen/postprocessing/tex_to_img.py) :  Converts the sampled `.txt` file containing raw LaTeX formulas into images for visualization. 
 	- [`results_viz.py`](https://github.com/hnt4499/latex-gen/blob/master/latex_gen/postprocessing/results_viz.py): Automatically generates graphs from a `.json` file for training loss, validation loss as well as all hyperparameters specified during training into an image file.
 
-<ul>
-<li> Results visualization for all trained models:</li>
-<ul> <li>The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this shallow approach is that it cannot capture th logic behind brackets. While doing a good job in some short formulas like `(10)` and `(14)`, most of the brackets are not opened/closed correctly. Having said that, the model is able to generate quite long, complex formulas like `(12)` or `(15)` without introducing many errors, indicating that we can further improve from this model to achieve much better results. </li> </ul>
+- Results visualization for all trained models:
+
+	- The first model was trained on processed dataset and with the minimal hyperparameters to obtain a baseline. Below graphs are the training results and formulas sampled from trained model. As can be seen, the model can capture quite easily the training corpus, since there are only 95 tokens in the vocab. It is easy to notice that the main problem with this shallow approach is that it cannot capture th logic behind brackets. While doing a good job in some short formulas like `(10)` and `(14)`, most of the brackets are not opened/closed correctly. Having said that, the model is able to generate quite long, complex formulas like `(12)` or `(15)` without introducing many errors, indicating that we can further improve from this model to achieve much better results.
+	
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/training.jpg) 
+
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) 
+
+- <p> The second model was trained on the "un-processed" dataset (only processed with [`torch-rnn/scripts/preprocess.py`](https://github.com/jcjohnson/torch-rnn/blob/master/scripts/preprocess.py) to tokenize input data, without normalizing and removing outliers). Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas `(3)` and `(4)`, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset. </p>
 	
 | Training results |
 |--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/training.jpg) |
+| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg)) |
 
-| Sampled formulas |
-|--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) |
-
-<ul> <li> The second model was trained on the "un-processed" dataset (only processed with [`torch-rnn/scripts/preprocess.py`](https://github.com/jcjohnson/torch-rnn/blob/master/scripts/preprocess.py) to tokenize input data, without normalizing and removing outliers). Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas </code>(3)</code> and </code>(4)</code>, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset. </li></ul>
-	
-| Training results |
-|--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg)|
-
-| Sampled formulas |
-|--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png) |
-
-
-</ul>
-
-</ul>
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png) 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NjI4MjIzNywtMzk5NzAyMDc1LC05Nz
-M2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5
-NzZdfQ==
+eyJoaXN0b3J5IjpbLTEyMTUxOTUxOTIsLTM5OTcwMjA3NSwtOT
+czNjMyMjI5LDk1NjcwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAy
+OTc2XX0=
 -->
