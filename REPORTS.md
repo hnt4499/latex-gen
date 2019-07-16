@@ -82,11 +82,12 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
-- - The fifth model 
+- - The fifth model seems to produce more meaningful results as compared to previous models.
+
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEzNDE2NDg1LDE5NzQ4ODIyNzEsMTIzMD
+eyJoaXN0b3J5IjpbOTc2OTE5MDExLDE5NzQ4ODIyNzEsMTIzMD
 k4MDc1MiwtMTUwNDY0MTUzMywxMzkwMTE0ODc2LC0zNTc2MzAz
 MjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1NjcwNDc5NywtMT
 UyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
