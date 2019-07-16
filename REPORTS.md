@@ -67,7 +67,3 @@
 | ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) |
 
 
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDYyOTI5NDcsMTk2MDY1OTM2OF19
--->
