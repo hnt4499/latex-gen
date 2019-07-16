@@ -33,10 +33,17 @@ def main(args):
             if os.path.isdir(file_path):
                 continue
             with open(file_path, "r", encoding=args.encoding) as file:
-                data = file.read().replace("\n", " ") # replace newline char with space.
+                data = file.read().replace("\n", " ") # replace newline char with space
             # Use regular expression to extract data
             formulas = re.findall(REGEX_PATTERN, data)
             small_formulas = re.findall(REGEX_PATTERN_2, data)
+            # Since LaTeX formulas span multiple lines and part of the formulas
+            # can be commented out by using `%`, and since we turn all formulas
+            # to just one line, we need to get rid of `%`
+            formulas = list(map(lambda x: x.replace("%", ""), formulas))
+            # The second regex return two matches at a time, but only one
+            # of them are usable, it needs to be concatenated
+            small_formulas = list(map(lambda x: "".join(x), small_formulas))
             # Write output data
             for formula in formulas:
                 if min_len <= len(formula) <= max_len:
