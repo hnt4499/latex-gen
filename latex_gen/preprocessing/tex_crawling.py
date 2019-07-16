@@ -51,9 +51,9 @@ def main(args):
                     continue
                 if min_len <= len(formula) <= max_len:
                     out.write(formula + "\n")
-            for formula in small_formulas:
-                if min_len <= len(formula) <= max_len:
-                    out.write(formula + "\n")
+            # for formula in small_formulas:
+            #     if min_len <= len(formula) <= max_len:
+            #         out.write(formula + "\n")
 
 
 def parse_arguments(argv):
