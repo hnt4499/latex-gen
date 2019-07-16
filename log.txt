@@ -1,0 +1,3 @@
+2019-07-14 20:57:35,405 root  INFO     Script being executed: im2markup/scripts/preprocessing/preprocess_formulas.py
+2019-07-14 20:57:36,733 root  ERROR    FAILED: cat data/combined_processed.txt.tmp | node scripts/preprocessing/preprocess_latex.js normalize > data/combined_processed.txt 
+2019-07-14 20:57:36,733 root  INFO     Jobs finished
