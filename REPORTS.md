@@ -70,7 +70,7 @@
 	
 | Training results |
 |--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg)) |
+| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg)|
 
 | Sampled formulas |
 |--|
@@ -81,6 +81,6 @@
 
 </ul>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMzcwOTQ3NiwtOTczNjMyMjI5LDk1Nj
+eyJoaXN0b3J5IjpbLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1Nj
 cwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
 -->
