@@ -82,13 +82,14 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
-- - The fifth model sees a significant improve in model performance, as it produces meaningful results as compared to previous models. This model was fed with much more data, which is obtained by crawling the 
+- - The fifth model sees a significant improve in model performance, as it produces meaningful results as compared to previous models. This model was fed with much more data, which is obtained by crawling the [`hep-th` dataset](https://www.cs.cornell.edu/projects/kddcup/datasets.html) using some `regex`. The script used for crawling data can be found under the `preprocessing` folder.
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjI3NDgwNzcsOTc2OTE5MDExLDE5Nz
-Q4ODIyNzEsMTIzMDk4MDc1MiwtMTUwNDY0MTUzMywxMzkwMTE0
-ODc2LC0zNTc2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LD
-k1NjcwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
+eyJoaXN0b3J5IjpbMTc5ODg0ODQ4NSwtMjAyMjc0ODA3Nyw5Nz
+Y5MTkwMTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQx
+NTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC
+05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIx
+MDI5NzZdfQ==
 -->
