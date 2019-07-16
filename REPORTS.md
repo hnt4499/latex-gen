@@ -82,13 +82,13 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
-- - The fifth model seems to produce more meaningful results as compared to previous models.
+- - The fifth model sees a significant improve in model performance, as it produces meaningful results as compared to previous models. This model was fed with much more data, which is obtained by crawling the 
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc2OTE5MDExLDE5NzQ4ODIyNzEsMTIzMD
-k4MDc1MiwtMTUwNDY0MTUzMywxMzkwMTE0ODc2LC0zNTc2MzAz
-MjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1NjcwNDc5NywtMT
-UyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
+eyJoaXN0b3J5IjpbLTIwMjI3NDgwNzcsOTc2OTE5MDExLDE5Nz
+Q4ODIyNzEsMTIzMDk4MDc1MiwtMTUwNDY0MTUzMywxMzkwMTE0
+ODc2LC0zNTc2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMyMjI5LD
+k1NjcwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
 -->
