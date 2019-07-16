@@ -70,11 +70,11 @@
 	
 | Training results |
 |--|
-| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/training.jpg) |
+| ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg)) |
 
 | Sampled formulas |
 |--|
 | ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExMjEwMjk3Nl19
+eyJoaXN0b3J5IjpbLTE1MjIzNTExMjgsMjExMjEwMjk3Nl19
 -->
