@@ -69,8 +69,8 @@
 
 - - With the only difference is the dataset, it is not surprising that this model produces similar results to the second model. When inspecting carefully, it turns out that this model produces slightly cleaner result. However, the brackets problem still persists.
 	
-![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
-![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_1938/training.jpg "Training results")
+![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_1938/sample_batch/20190709_1938_65.png "Sampled formulas")
 
 - - With the increase in the size of word embedding vectors and more intensive dropout, we can see a significant improve in the model's performance. Nevertheless, it still produces some unclosed brackets, especially in case of guillemet `<`, `>`. This is probably because of the lack of this symbol in the training dataset. Besides that, when inspecting the sample carefully, some unusual word patterns can be spotted like the one shown below
 
@@ -89,9 +89,9 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5Nz
-Y5MTkwMTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQx
-NTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC
-05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIx
-MDI5NzZdfQ==
+eyJoaXN0b3J5IjpbMTExNjM1NDcsMTExMTc3NzIxNCwtMjAyMj
+c0ODA3Nyw5NzY5MTkwMTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUy
+LC0xNTA0NjQxNTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMz
+k5NzAyMDc1LC05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUx
+MTI4LDIxMTIxMDI5NzZdfQ==
 -->
