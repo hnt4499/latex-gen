@@ -72,14 +72,15 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0822/sample_batch/20190709_0822_34.png "Sampled formulas")
 
-- - With the increase in the size of word embedding vectors and more intensive dropout, we can see a significant improve in the model's performance. Nevertheless, it still produces some unclosed brackets, especially in case of guillemet `<`, `>`. This is probably because of the lack of this symbol in the training dataset. Besides that, when inspecting the sample carefully, some unusual word patterns can be spotted
+- - With the increase in the size of word embedding vectors and more intensive dropout, we can see a significant improve in the model's performance. Nevertheless, it still produces some unclosed brackets, especially in case of guillemet `<`, `>`. This is probably because of the lack of this symbol in the training dataset. Besides that, when inspecting the sample carefully, some unusual word patterns can be spotted like the one shown below
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample/20190711_0200_205.png "Unusual pattern")
 	
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/training.jpg "Training results")
 ![alt text](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190711_0200/sample_batch/20190711_0200_10.png "Sampled formulas")
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzOTkwMzU3MCwxMjMwOTgwNzUyLC0xNT
-A0NjQxNTMzLDEzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAy
-MDc1LC05NzM2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LD
-IxMTIxMDI5NzZdfQ==
+eyJoaXN0b3J5IjpbNjU3MDQzMDgzLDEyMzA5ODA3NTIsLTE1MD
+Q2NDE1MzMsMTM5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIw
+NzUsLTk3MzYzMjIyOSw5NTY3MDQ3OTcsLTE1MjIzNTExMjgsMj
+ExMjEwMjk3Nl19
 -->
