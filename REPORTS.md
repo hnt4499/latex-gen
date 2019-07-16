@@ -66,7 +66,7 @@
 |--|
 | ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190709_0221/sample_batch/20190709_0221_71.png) |
 
-<ul> <li> The second model was trained on the "un-processed" dataset (only processed with [`torch-rnn/scripts/preprocess.py`](https://github.com/jcjohnson/torch-rnn/blob/master/scripts/preprocess.py) to tokenize input data, without normalizing and removing outliers). Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas `(3)` and `(4)`, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset. </li></ul>
+<ul> <li> The second model was trained on the "un-processed" dataset (only processed with [`torch-rnn/scripts/preprocess.py`](https://github.com/jcjohnson/torch-rnn/blob/master/scripts/preprocess.py) to tokenize input data, without normalizing and removing outliers). Somewhat surprisingly, the model was very good at capturing the logic of brackets, as shown below. However, the results slightly got messed up (formulas </code>(3)</code> and </code>(4)</code>, where the numbering got shifted). This means that the formulas syntax is sometimes wrong, resulting in wrongly formatted formulas. This is perhaps because the model was trained on a raw dataset rather than a processed dataset. </li></ul>
 	
 | Training results |
 |--|
@@ -81,6 +81,7 @@
 
 </ul>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5OTcwMjA3NSwtOTczNjMyMjI5LDk1Nj
-cwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX0=
+eyJoaXN0b3J5IjpbMTg3NjI4MjIzNywtMzk5NzAyMDc1LC05Nz
+M2MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5
+NzZdfQ==
 -->
