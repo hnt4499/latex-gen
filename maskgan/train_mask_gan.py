@@ -177,12 +177,17 @@ tf.app.flags.DEFINE_integer('eval_epoch_size_override', None,
 tf.app.flags.DEFINE_string('base_directory', '/tmp/maskGAN_v0.00',
                            'Base directory for the logging, events and graph.')
 tf.app.flags.DEFINE_string('data_set', 'ptb', 'Data set to operate on.  One of'
-                           "['ptb', 'imdb']")
+                           "['ptb', 'imdb', 'custom']. If custom, custom paths"
+                           "will be used instead of `data_dir`.")
+tf.app.flags.DEFINE_string('train_path', None, "Path to custom training data.")
+tf.app.flags.DEFINE_string('valid_path', None, "Path to custom validation data.")
+tf.app.flags.DEFINE_string('test_path', None, "Path to custom test data.")
+
 tf.app.flags.DEFINE_string('data_dir', '/tmp/data/ptb',
                            'Directory for the training data.')
 tf.app.flags.DEFINE_string(
     'language_model_ckpt_dir', None,
-    'Directory storing checkpoints to initialize the model.  Pretrained models'
+    'Directory storing checkpoints to initialize the model. Pretrained models'
     'are stored at /tmp/maskGAN/pretrained/')
 tf.app.flags.DEFINE_string(
     'language_model_ckpt_dir_reversed', None,
