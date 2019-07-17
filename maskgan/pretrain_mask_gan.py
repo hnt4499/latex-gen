@@ -27,6 +27,7 @@ import tensorflow as tf
 
 from data import imdb_loader
 from data import ptb_loader
+from data import custom_loader
 
 # Data.
 from model_utils import model_utils
@@ -62,6 +63,10 @@ def pretrain_generator(sv, sess, model, data, log, id_to_word,
     elif FLAGS.data_set == 'imdb':
       iterator = imdb_loader.imdb_iterator(data, FLAGS.batch_size,
                                            FLAGS.sequence_length)
+    if FLAGS.data_set == 'custom':
+      iterator = custom_loader.custom_iterator(data, FLAGS.batch_size,
+                                               FLAGS.sequence_length,
+                                               FLAGS.epoch_size_override)
 
     for x, y, _ in iterator:
 
@@ -156,6 +161,10 @@ def pretrain_discriminator(sv, sess, model, data, log, id_to_word,
     elif FLAGS.data_set == 'imdb':
       iterator = imdb_loader.imdb_iterator(data, FLAGS.batch_size,
                                            FLAGS.sequence_length)
+    if FLAGS.data_set == 'custom':
+      iterator = custom_loader.custom_iterator(data, FLAGS.batch_size,
+                                               FLAGS.sequence_length,
+                                               FLAGS.epoch_size_override)
 
     for x, y, _ in iterator:
       is_present_rate = FLAGS.is_present_rate
