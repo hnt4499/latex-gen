@@ -1115,7 +1115,7 @@ def main(_):
         os.path.join(FLAGS.data_dir, 'vocab.txt'))
   elif FLAGS.data_set == 'custom':
     word_to_id = custom_loader.build_vocab(FLAGS.train_path)
-  id_to_word = {v: k for k, v in word_to_id.iteritems()}
+  id_to_word = {v: k for k, v in word_to_id.items()}
 
   # Dictionary of Training Set n-gram counts.
   bigram_tuples = n_gram.find_all_ngrams(valid_data_flat, n=2)
