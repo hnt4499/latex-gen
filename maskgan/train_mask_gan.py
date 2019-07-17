@@ -53,6 +53,7 @@ import tensorflow as tf
 import pretrain_mask_gan
 from data import imdb_loader
 from data import ptb_loader
+from data import custom_loader
 from model_utils import helper
 from model_utils import model_construction
 from model_utils import model_losses
