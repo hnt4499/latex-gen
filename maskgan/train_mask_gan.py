@@ -696,7 +696,7 @@ def train_model(hparams, data, log_dir, log, id_to_word, data_ngram_counts):
               train_feed = {model.inputs: x, model.targets: y, model.present: p}
 
               # Statefulness for Generator.
-              if FLAGS.data_set == 'ptb':
+              if FLAGS.data_set == 'ptb' or FLAGS.data_set == "custom":
                 tf.logging.info('Generator is stateful.')
                 print('Generator is stateful.')
                 # Statefulness for *evaluation* Generator.
@@ -908,7 +908,7 @@ def evaluate_once(data, sv, model, sess, train_dir, log, id_to_word,
 
     eval_feed = {model.inputs: x, model.targets: y, model.present: p}
 
-    if FLAGS.data_set == 'ptb':
+    if FLAGS.data_set == 'ptb' or FLAGS.data_set == "custom":
       # Statefulness for *evaluation* Generator.
       for i, (c, h) in enumerate(model.eval_initial_state):
         eval_feed[c] = gen_initial_state_eval[i].c
@@ -1089,6 +1089,11 @@ def main(_):
     # TODO(liamfedus): Get an IMDB test partition.
     train_data, valid_data = raw_data
     valid_data_flat = [word for review in valid_data for word in review]
+  elif FLAGS.data_set == 'custom':
+    raw_data = custom_loader.custom_raw_data(FLAGS.train_path, FLAGS.valid_path,
+                                             FLAGS.test_path)
+    train_data, valid_data, test_data, _ = raw_data
+    valid_data_flat = valid_data
   else:
     raise NotImplementedError
 
@@ -1108,6 +1113,8 @@ def main(_):
   elif FLAGS.data_set == 'imdb':
     word_to_id = imdb_loader.build_vocab(
         os.path.join(FLAGS.data_dir, 'vocab.txt'))
+  elif FLAGS.data_set == 'custom':
+    word_to_id = custom_loader.build_vocab(FLAGS.train_path)
   id_to_word = {v: k for k, v in word_to_id.iteritems()}
 
   # Dictionary of Training Set n-gram counts.
