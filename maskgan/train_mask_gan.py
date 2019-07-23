@@ -467,7 +467,7 @@ def compute_geometric_average(percent_captured):
   """Compute the geometric average of the n-gram metrics."""
 
   res = 1.
-  for _, n_gram_percent in percent_captured.iteritems():
+  for _, n_gram_percent in percent_captured.items():
     res *= n_gram_percent
 
   return np.power(res, 1. / float(len(percent_captured)))
@@ -478,7 +478,7 @@ def compute_arithmetic_average(percent_captured):
   N = len(percent_captured)
 
   res = 0.
-  for _, n_gram_percent in percent_captured.iteritems():
+  for _, n_gram_percent in percent_captured.items():
     res += n_gram_percent
 
   return res / float(N)
@@ -759,7 +759,7 @@ def train_model(hparams, data, log_dir, log, id_to_word, data_ngram_counts):
 
                 # Summary:  n-gram
                 avg_percent_captured = {'2': 0., '3': 0., '4': 0.}
-                for n, data_ngram_count in data_ngram_counts.iteritems():
+                for n, data_ngram_count in data_ngram_counts.items():
                   batch_percent_captured = evaluation_utils.sequence_ngram_evaluation(
                       sess, model.fake_sequence, log, train_feed,
                       data_ngram_count, int(n))
@@ -811,7 +811,7 @@ def train_model(hparams, data, log_dir, log, id_to_word, data_ngram_counts):
 
                 # Average percent captured for each of the n-grams.
                 avg_percent_captured = {'2': 0., '3': 0., '4': 0.}
-                for n, data_ngram_count in data_ngram_counts.iteritems():
+                for n, data_ngram_count in data_ngram_counts.items():
                   batch_percent_captured = evaluation_utils.sequence_ngram_evaluation(
                       sess, model.fake_sequence, log, train_feed,
                       data_ngram_count, int(n))
@@ -930,7 +930,7 @@ def evaluate_once(data, sv, model, sess, train_dir, log, id_to_word,
         ],
         feed_dict=eval_feed)
 
-    for n, data_ngram_count in data_ngram_counts.iteritems():
+    for n, data_ngram_count in data_ngram_counts.items():
       batch_percent_captured = evaluation_utils.sequence_ngram_evaluation(
           sess, model.fake_sequence, log, eval_feed, data_ngram_count, int(n))
       avg_percent_captured[n] += batch_percent_captured
@@ -944,7 +944,7 @@ def evaluate_once(data, sv, model, sess, train_dir, log, id_to_word,
 
   # Calulate rolling metrics.
   perplexity = np.exp(cumulative_costs / gen_iters)
-  for n, _ in avg_percent_captured.iteritems():
+  for n, _ in avg_percent_captured.items():
     avg_percent_captured[n] /= gen_iters
 
   # Confirm perplexity is not infinite.
@@ -959,7 +959,7 @@ def evaluate_once(data, sv, model, sess, train_dir, log, id_to_word,
   print(' perplexity: %.3f' % perplexity)
   log.write(' perplexity: %.3f\n' % perplexity)
 
-  for n, n_gram_percent in avg_percent_captured.iteritems():
+  for n, n_gram_percent in avg_percent_captured.items():
     n = int(n)
     print(' percent of %d-grams captured: %.3f.' % (n, n_gram_percent))
     log.write(' percent of %d-grams captured: %.3f.\n' % (n, n_gram_percent))
@@ -977,7 +977,7 @@ def evaluate_once(data, sv, model, sess, train_dir, log, id_to_word,
   sv.SummaryComputed(sess, summary_str, global_step=step)
 
   # Summary:  n-gram
-  for n, n_gram_percent in avg_percent_captured.iteritems():
+  for n, n_gram_percent in avg_percent_captured.items():
     n = int(n)
     summary_percent_str = tf.Summary(value=[
         tf.Summary.Value(
