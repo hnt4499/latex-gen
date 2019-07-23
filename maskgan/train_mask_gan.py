@@ -493,6 +493,9 @@ def get_iterator(data):
   elif FLAGS.data_set == 'imdb':
     iterator = imdb_loader.imdb_iterator(data, FLAGS.batch_size,
                                          FLAGS.sequence_length)
+  elif FLAGS.data_set == 'custom':
+    iterator = custom_loader.custom_iterator(data, FLAGS.batch_size,
+                                             FLAGS.sequence_length)
   return iterator
 
 
