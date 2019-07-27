@@ -99,9 +99,9 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch/20190714_2115_12.png "Sampled formulas")
 
-- -  This time, the model was tested by a modest amount of data: only simple LaTeX formulas were put into the model to test the tendency to overfit. By leaving all hyperparameters  default, it is not surprising that the network made a lot of mistakes, especially when 
+- -  This time, the model was tested by a modest amount of data: only simple LaTeX formulas were put into the model to test the tendency to overfit. By leaving all hyperparameters  default, it is not surprising that the network made a lot of mistakes (especially those who were made during sampling, where the 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDIxNjc1NzAsLTE1NzQzNDg3MDMsMT
+eyJoaXN0b3J5IjpbLTE1MzIxMTczNDUsLTE1NzQzNDg3MDMsMT
 ExNjM1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkw
 MTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLD
 EzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2
