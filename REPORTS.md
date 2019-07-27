@@ -89,14 +89,14 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 
-- - Continuing from the previous work on the enormous amount of cleaned, complex and highly-structured data, this model was exposed
+- - Continuing from the previous work on the enormous amount of cleaned, complex and highly-structured data, this model was trained for longer time and achieved incredible results: the sample results were both more sematically and syntactically better than all previous models.
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/training.jpg "Training results")
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA0NDMwMTEzLC0xNTc0MzQ4NzAzLDExMT
+eyJoaXN0b3J5IjpbODIyMTA5NzQ4LC0xNTc0MzQ4NzAzLDExMT
 YzNTQ3LDExMTE3NzcyMTQsLTIwMjI3NDgwNzcsOTc2OTE5MDEx
 LDE5NzQ4ODIyNzEsMTIzMDk4MDc1MiwtMTUwNDY0MTUzMywxMz
 kwMTE0ODc2LC0zNTc2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMy
