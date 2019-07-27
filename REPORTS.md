@@ -99,17 +99,17 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch/20190714_2115_12.png "Sampled formulas")
 
-- -  This time, the model was tested by a modest amount of data: only simple LaTeX formulas were put into the model to test the tendency to overfit. By leaving all hyperparameters  default, it is not surprising that the network made a lot of mistakes (especially those who were made during sampling, where it cannot be converted into image)
+- -  This time, the model was tested by a modest amount of data: only simple LaTeX formulas were put into the model to test the tendency to overfit. By leaving all hyperparameters  default, it is not surprising that the network made a lot of mistakes (especially those who were made during sampling, where it cannot get converted into image). From the samples, we can conclude that this model was able to learn the training corpus (which is very simple), slightly overfit
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/training.jpg "Training results")
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/sample_batch/20190722_0200_165.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjk1NjkyNjMsLTE1NzQzNDg3MDMsMT
-ExNjM1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkw
-MTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLD
-EzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2
-MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5Nz
-ZdfQ==
+eyJoaXN0b3J5IjpbMTQyNDA4MDg5MywtMTU3NDM0ODcwMywxMT
+E2MzU0NywxMTExNzc3MjE0LC0yMDIyNzQ4MDc3LDk3NjkxOTAx
+MSwxOTc0ODgyMjcxLDEyMzA5ODA3NTIsLTE1MDQ2NDE1MzMsMT
+M5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYz
+MjIyOSw5NTY3MDQ3OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl
+19
 -->
