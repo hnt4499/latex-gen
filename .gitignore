@@ -12,3 +12,5 @@ data/**/*.t7
 **/*.pyc
 # Testing files
 test*
+# Logs
+log.txt
