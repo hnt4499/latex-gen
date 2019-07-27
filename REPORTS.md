@@ -106,17 +106,17 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/sample_batch/20190722_0200_165.png "Sampled formulas")
 
-- - This model was similar to the previous one, except that all hyperparameters were modified according to the best combination experienced. Inspecting the samples, we can see that the model badly overfitted to the training set, as it seems that the model produced simple, syntactically correct formulas, but the adjacent formulas were similar. This happend because the data was both semantically and syntactically simple trained on a  very complex model.
+- - This model was similar to the previous one, except that all hyperparameters were modified according to the best combination experienced. Inspecting the samples, we can see that the model badly overfitted to the training set, as it seems that the model produced simple, syntactically correct formulas, but the adjacent formulas were similar. This happend because the data was both semantically and syntactically simple trained on a  very complex model. What was surprsing was that it produced **no error** when being sampled and converted to image in the pipeline, which was never observed before, even with the best model. This simpl
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190725_0341/training.jpg "Training results")
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190725_0341/sample_batch/20190725_0341_16.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MDk2NjYsLTE1NzQzNDg3MDMsMTExNj
-M1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkwMTEs
-MTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLDEzOT
-AxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2MzIy
-MjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5NzZdfQ
-==
+eyJoaXN0b3J5IjpbLTE1ODA2MzA2OTYsLTE1NzQzNDg3MDMsMT
+ExNjM1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkw
+MTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLD
+EzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2
+MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5Nz
+ZdfQ==
 -->
