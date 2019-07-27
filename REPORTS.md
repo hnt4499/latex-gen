@@ -99,9 +99,9 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch/20190714_2115_12.png "Sampled formulas")
 
-- -  This time, the model was tested by 
+- -  This time, the model was tested by a modest amount of data: only simple LaTeX formulas were put into the model to test the tendency to overfit, as well as 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTIzMzIzOCwtMTU3NDM0ODcwMywxMT
+eyJoaXN0b3J5IjpbMTkxMzg3NzczNSwtMTU3NDM0ODcwMywxMT
 E2MzU0NywxMTExNzc3MjE0LC0yMDIyNzQ4MDc3LDk3NjkxOTAx
 MSwxOTc0ODgyMjcxLDEyMzA5ODA3NTIsLTE1MDQ2NDE1MzMsMT
 M5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYz
