@@ -104,12 +104,12 @@
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/training.jpg "Training results")
 
 
-![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/sample_batch/20190714_2115_12.png "Sampled formulas")
+![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/sample_batch/20190722_0200_165.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUyMzg2NjYyLC0xNTc0MzQ4NzAzLDExMT
-YzNTQ3LDExMTE3NzcyMTQsLTIwMjI3NDgwNzcsOTc2OTE5MDEx
-LDE5NzQ4ODIyNzEsMTIzMDk4MDc1MiwtMTUwNDY0MTUzMywxMz
-kwMTE0ODc2LC0zNTc2MzAzMjMsLTM5OTcwMjA3NSwtOTczNjMy
-MjI5LDk1NjcwNDc5NywtMTUyMjM1MTEyOCwyMTEyMTAyOTc2XX
-0=
+eyJoaXN0b3J5IjpbLTE4Mjk1NjkyNjMsLTE1NzQzNDg3MDMsMT
+ExNjM1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkw
+MTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLD
+EzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2
+MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5Nz
+ZdfQ==
 -->
