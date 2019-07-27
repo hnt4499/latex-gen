@@ -106,17 +106,17 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190722_0200/sample_batch/20190722_0200_165.png "Sampled formulas")
 
-- - This model was similar to the previous one, except that all hyperparameters were modified according to the best combination experienced. 
+- - This model was similar to the previous one, except that all hyperparameters were modified according to the best combination experienced. Inspecting the samples, we can see that the model badly overfitted to the training set, as it seems that the model produced simple, syntactically co
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190725_0341/training.jpg "Training results")
 
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190725_0341/sample_batch/20190725_0341_16.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5NjQ0ODA4MywtMTU3NDM0ODcwMywxMT
-E2MzU0NywxMTExNzc3MjE0LC0yMDIyNzQ4MDc3LDk3NjkxOTAx
-MSwxOTc0ODgyMjcxLDEyMzA5ODA3NTIsLTE1MDQ2NDE1MzMsMT
-M5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYz
-MjIyOSw5NTY3MDQ3OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl
-19
+eyJoaXN0b3J5IjpbLTIwOTI4NjM2NzQsLTE1NzQzNDg3MDMsMT
+ExNjM1NDcsMTExMTc3NzIxNCwtMjAyMjc0ODA3Nyw5NzY5MTkw
+MTEsMTk3NDg4MjI3MSwxMjMwOTgwNzUyLC0xNTA0NjQxNTMzLD
+EzOTAxMTQ4NzYsLTM1NzYzMDMyMywtMzk5NzAyMDc1LC05NzM2
+MzIyMjksOTU2NzA0Nzk3LC0xNTIyMzUxMTI4LDIxMTIxMDI5Nz
+ZdfQ==
 -->
