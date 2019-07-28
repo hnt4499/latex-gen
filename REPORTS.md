@@ -89,7 +89,7 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190714_2115/sample_batch_121000/20190714_2115_86.png "Sampled formulas")
 
-## Week 2 (15/Jul/2019)
+## Week 3 (22/Jul/2019)
 > Overview
 
 - - Continuing from the previous work on the enormous amount of cleaned, complex and highly-structured data, this model was trained for longer time and achieved incredible result: the sample results were both more semantically and syntactically better than all previous models, as shown in the example below. 
@@ -113,10 +113,10 @@
 
 ![](https://raw.githubusercontent.com/hnt4499/latex_gen/master/data/checkpoints/20190725_0341/sample_batch/20190725_0341_16.png "Sampled formulas")
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMTY5NjI3MywtMTU3NDM0ODcwMywxMT
-E2MzU0NywxMTExNzc3MjE0LC0yMDIyNzQ4MDc3LDk3NjkxOTAx
-MSwxOTc0ODgyMjcxLDEyMzA5ODA3NTIsLTE1MDQ2NDE1MzMsMT
-M5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIwNzUsLTk3MzYz
-MjIyOSw5NTY3MDQ3OTcsLTE1MjIzNTExMjgsMjExMjEwMjk3Nl
-19
+eyJoaXN0b3J5IjpbNjQ1OTgwMDIsLTcyMTY5NjI3MywtMTU3ND
+M0ODcwMywxMTE2MzU0NywxMTExNzc3MjE0LC0yMDIyNzQ4MDc3
+LDk3NjkxOTAxMSwxOTc0ODgyMjcxLDEyMzA5ODA3NTIsLTE1MD
+Q2NDE1MzMsMTM5MDExNDg3NiwtMzU3NjMwMzIzLC0zOTk3MDIw
+NzUsLTk3MzYzMjIyOSw5NTY3MDQ3OTcsLTE1MjIzNTExMjgsMj
+ExMjEwMjk3Nl19
 -->
